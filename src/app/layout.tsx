@@ -27,9 +27,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${greatVibes.variable} ${montserrat.variable} h-full antialiased`}
+      className={`${greatVibes.variable} ${montserrat.variable} lock-scroll h-full antialiased`}
     >
-      <body className="min-h-full bg-black font-primary text-white">
+      <body className="lock-scroll min-h-full bg-black font-primary text-white">
         {children}
       </body>
     </html>

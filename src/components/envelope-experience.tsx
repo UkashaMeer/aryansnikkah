@@ -11,6 +11,7 @@ export function EnvelopeExperience() {
   const hintRef = useRef<HTMLParagraphElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const inviteRef = useRef<HTMLDivElement>(null);
+  const scrollBtnRef = useRef<HTMLButtonElement>(null);
   const openedRef = useRef(false);
 
   useEffect(() => {
@@ -19,8 +20,17 @@ export function EnvelopeExperience() {
 
     const onEnded = () => {
       video.pause();
+      document.documentElement.classList.remove("lock-scroll");
+      document.body.classList.remove("lock-scroll");
       if (inviteRef.current) {
         gsap.to(inviteRef.current, {
+          opacity: 1,
+          duration: 1.6,
+          ease: "power1.out",
+        });
+      }
+      if (scrollBtnRef.current) {
+        gsap.to(scrollBtnRef.current, {
           opacity: 1,
           duration: 1.6,
           ease: "power1.out",
@@ -78,77 +88,91 @@ export function EnvelopeExperience() {
     );
   }
 
+  function scrollDown() {
+    document.getElementById("section-2")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }
+
   return (
-    <div className="relative mx-auto h-dvh w-full max-w-md overflow-hidden bg-black">
-      <video
-        ref={videoRef}
-        className="absolute inset-0 z-0 h-full w-full object-cover"
-        src="/after-envople-video.mp4"
-        playsInline
-        preload="auto"
-      >
-        Your browser does not support the video tag.
-      </video>
-
-
-      <div
-        ref={inviteRef}
-        className="pointer-events-none absolute inset-x-0 top-[28%] z-[5] flex flex-col items-center opacity-0"
-      >
-        <img
-          src="/Bismillah.webp"
-          alt=""
-          className="h-[38vw] max-h-44 max-w-40 ml-4 rounded-full object-contain"
-        />
-        <p className="mt-18 font-sans font-semibold text-[14px] leading-none text-maroon text-center uppercase leading-relaxed">
-        Mr & Mrs. Mansoor Ul Hassan
-          Request <br /> the honour of your presence at the
-        </p>
-        <h1 className="mt-4 font-primary font-medium text-5xl leading-none text-maroon">
-        Nikkah Ceremony
-        </h1>
-        <p className="mt-2 font-sans font-semibold text-[14px] leading-none text-maroon text-center uppercase leading-relaxed">
-          Of their beloved son
-        </p>
-      </div>
-
-      <div ref={envelopeRef} className="absolute inset-0 z-10">
-        <button
-          type="button"
-          aria-label="Open invitation"
-          className="absolute inset-0 z-30 cursor-pointer border-0 bg-transparent"
-          onClick={openEnvelope}
-        />
-
-        <img
-          ref={fillRef}
-          src="/fill.webp"
-          alt=""
+    <>
+      <div className="relative mx-auto h-dvh w-full max-w-md overflow-hidden bg-black">
+        <video
+          ref={videoRef}
           className="absolute inset-0 z-0 h-full w-full object-cover"
-        />
+          src="/after-envople-video.mp4"
+          playsInline
+          preload="auto"
+        >
+          Your browser does not support the video tag.
+        </video>
 
-        <div className="absolute inset-x-0 top-0 z-10">
+        <div
+          ref={inviteRef}
+          className="pointer-events-none absolute inset-x-0 top-[28%] z-[5] flex flex-col items-center opacity-0"
+        >
           <img
-            ref={topRef}
-            src="/envolpe-top.webp"
+            src="/Bismillah.webp"
             alt=""
-            className="relative z-20 block w-full will-change-transform"
-          />
-          <img
-            ref={bottomRef}
-            src="/envolpe-bottom.webp"
-            alt=""
-            className="relative z-10 -mt-[24%] block w-full will-change-transform"
+            className="ml-4 h-[38vw] max-h-44 max-w-40 rounded-full object-contain"
           />
         </div>
 
-        <p
-          ref={hintRef}
-          className="pointer-events-none absolute inset-x-0 top-[72%] z-40 text-center text-3xl text-white"
+        <button
+          ref={scrollBtnRef}
+          type="button"
+          aria-label="Scroll down"
+          onClick={scrollDown}
+          className="absolute bottom-5 left-1/2 z-[6] flex -translate-x-1/2 flex-col items-center gap-0.5 border-0 bg-transparent opacity-0"
         >
-          Tap to open
-        </p>
+          <span className="font-primary text-2xl text-maroon">Scroll down</span>
+          <span className="animate-bounce text-2xl leading-none text-maroon">
+            ↓
+          </span>
+        </button>
+
+        <div ref={envelopeRef} className="absolute inset-0 z-10">
+          <button
+            type="button"
+            aria-label="Open invitation"
+            className="absolute inset-0 z-30 cursor-pointer border-0 bg-transparent"
+            onClick={openEnvelope}
+          />
+
+          <img
+            ref={fillRef}
+            src="/fill.webp"
+            alt=""
+            className="absolute inset-0 z-0 h-full w-full object-cover"
+          />
+
+          <div className="absolute inset-x-0 top-0 z-10">
+            <img
+              ref={topRef}
+              src="/envolpe-top.webp"
+              alt=""
+              className="relative z-20 block w-full will-change-transform"
+            />
+            <img
+              ref={bottomRef}
+              src="/envolpe-bottom.webp"
+              alt=""
+              className="relative z-10 -mt-[24%] block w-full will-change-transform"
+            />
+          </div>
+
+          <p
+            ref={hintRef}
+            className="pointer-events-none absolute inset-x-0 top-[72%] z-40 text-center text-3xl text-white"
+          >
+            Tap to open
+          </p>
+        </div>
       </div>
-    </div>
+      <section
+        id="section-2"
+        className="mx-auto min-h-dvh w-full max-w-md bg-black"
+      />
+    </>
   );
 }
