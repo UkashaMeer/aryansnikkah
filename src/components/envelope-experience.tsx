@@ -53,7 +53,7 @@ export function EnvelopeExperience() {
         yPercent: -130,
         duration: 1.35,
         ease: "power3.inOut",
-        transformOrigin: "50% 65%",
+        transformOrigin: "50% 100%",
       },
       0,
     );
@@ -93,19 +93,20 @@ export function EnvelopeExperience() {
           onClick={openEnvelope}
         />
 
-        <img
-          ref={bottomRef}
-          src="/envolpe-bottom.png"
-          alt=""
-          className="absolute bottom-0 left-0 z-10 w-full will-change-transform"
-        />
-
-        <img
-          ref={topRef}
-          src="/envolpe-top.png"
-          alt=""
-          className="absolute top-0 left-0 z-20 w-full will-change-transform"
-        />
+        <div className="absolute inset-x-0 top-0">
+          <img
+            ref={topRef}
+            src="/envolpe-top.png"
+            alt=""
+            className="relative z-20 block w-full will-change-transform"
+          />
+          <img
+            ref={bottomRef}
+            src="/envolpe-bottom.png"
+            alt=""
+            className="relative z-10 -mt-[12%] block w-full will-change-transform"
+          />
+        </div>
 
         <p
           ref={hintRef}

@@ -60,8 +60,8 @@ async function loadTransparent(src) {
 
 (async () => {
   const topSrc = path.join(PUBLIC, "envolpe-top.png");
-  const bottomSrc = fs.existsSync(path.join(PUBLIC, "envople-bottom.png"))
-    ? path.join(PUBLIC, "envople-bottom.png")
+  const bottomSrc = fs.existsSync(path.join(PUBLIC, "envolpe-bottom-new.jpg"))
+    ? path.join(PUBLIC, "envolpe-bottom-new.jpg")
     : path.join(PUBLIC, "envolpe-bottom.png");
 
   const topBuf = await loadTransparent(topSrc);
