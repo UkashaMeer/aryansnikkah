@@ -46,28 +46,27 @@ export function EnvelopeExperience() {
       },
     });
 
-    tl.to(hint, { opacity: 0, duration: 0.2, ease: "power1.out" }, 0);
+    tl.to(fill, { opacity: 0, duration: 0.05, ease: "none" }, 0);
+    tl.to(hint, { opacity: 0, duration: 0.3, ease: "power1.out" }, 0);
 
     tl.to(
       top,
       {
-        rotateX: -118,
-        yPercent: -130,
-        duration: 1.35,
-        ease: "power3.inOut",
-        transformOrigin: "50% 100%",
+        yPercent: -120,
+        duration: 2.6,
+        ease: "power2.inOut",
       },
       0,
     );
 
     tl.to(
-      [bottom, fill],
+      bottom,
       {
         yPercent: 120,
-        duration: 1.75,
-        ease: "power2.in",
+        duration: 2.6,
+        ease: "power2.inOut",
       },
-      0.18,
+      0,
     );
   }
 
@@ -83,11 +82,7 @@ export function EnvelopeExperience() {
         Your browser does not support the video tag.
       </video>
 
-      <div
-        ref={envelopeRef}
-        className="absolute inset-0 z-10"
-        style={{ perspective: "1200px" }}
-      >
+      <div ref={envelopeRef} className="absolute inset-0 z-10">
         <button
           type="button"
           aria-label="Open invitation"
@@ -97,21 +92,21 @@ export function EnvelopeExperience() {
 
         <img
           ref={fillRef}
-          src="/fill.jpg"
+          src="/fill.webp"
           alt=""
-          className="absolute inset-0 z-0 h-full w-full object-cover will-change-transform"
+          className="absolute inset-0 z-0 h-full w-full object-cover"
         />
 
         <div className="absolute inset-x-0 top-0 z-10">
           <img
             ref={topRef}
-            src="/envolpe-top.png"
+            src="/envolpe-top.webp"
             alt=""
             className="relative z-20 block w-full will-change-transform"
           />
           <img
             ref={bottomRef}
-            src="/envolpe-bottom.png"
+            src="/envolpe-bottom.webp"
             alt=""
             className="relative z-10 -mt-[42%] block w-full will-change-transform"
           />
