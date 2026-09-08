@@ -107,6 +107,9 @@ export function EnvelopeExperience() {
         <h1 className="mt-4 font-primary font-medium text-5xl leading-none text-maroon">
         Nikkah Ceremony
         </h1>
+        <p className="mt-2 font-sans font-semibold text-[14px] leading-none text-maroon text-center uppercase leading-relaxed">
+          Of their beloved son
+        </p>
       </div>
 
       <div ref={envelopeRef} className="absolute inset-0 z-10">
