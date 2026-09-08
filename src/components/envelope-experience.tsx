@@ -102,15 +102,15 @@ export function EnvelopeExperience() {
           />
           <img
             ref={bottomRef}
-            src="/envolpe-bottom.png"
+            src="/fill.jpg"
             alt=""
-            className="relative z-10 -mt-[42%] block w-full will-change-transform"
+            className="relative z-10 -mt-[60%] block w-full will-change-transform"
           />
         </div>
 
         <p
           ref={hintRef}
-          className="pointer-events-none absolute inset-x-0 top-[68%] z-40 text-center text-3xl text-white"
+          className="pointer-events-none absolute inset-x-0 top-[72%] z-40 text-center text-3xl text-white"
         >
           Tap to open
         </p>
