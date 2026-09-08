@@ -90,20 +90,26 @@ export function EnvelopeExperience() {
         Your browser does not support the video tag.
       </video>
 
+
       <div
         ref={inviteRef}
-        className="pointer-events-none absolute inset-x-0 top-[18%] z-[5] flex flex-col items-center opacity-0"
+        className="pointer-events-none absolute inset-x-0 top-[25%] z-[5] flex flex-col items-center opacity-0"
       >
         <img
           src="/flower.webp"
           alt=""
-          className="h-[38vw] max-h-44 w-[38vw] max-w-44 rounded-full object-contain animate-[spin_22s_linear_infinite]"
+          className="h-[38vw] max-h-44 w-[30vw] max-w-44 rounded-full object-contain animate-[spin_22s_linear_infinite]"
         />
-        <h1 className="mt-3 font-primary text-5xl leading-none text-maroon">
+        <p className="mt-18 font-sans text-[14px] leading-none text-maroon text-center uppercase leading-relaxed">
+          Mr & Mrs. Mansoor Ul Hassan
+        </p>
+        <h1 className="mt-2 font-primary text-5xl leading-none text-maroon">
           Aryan &amp; Laiba
         </h1>
-        <p className="mt-2 font-primary text-3xl leading-none text-maroon">
-          nikkah ceremony
+        <p className="mt-2 font-sans text-[14px] leading-none text-maroon text-center uppercase leading-relaxed">
+          Request the honour of your presence        <br /> at the
+
+          Nikkah Ceremony
         </p>
       </div>
 
@@ -133,7 +139,7 @@ export function EnvelopeExperience() {
             ref={bottomRef}
             src="/envolpe-bottom.webp"
             alt=""
-            className="relative z-10 -mt-[42%] block w-full will-change-transform"
+            className="relative z-10 -mt-[28%] block w-full will-change-transform"
           />
         </div>
 
