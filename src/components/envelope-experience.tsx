@@ -684,14 +684,6 @@ export function EnvelopeExperience() {
             May Allah bless you and shower His blessings upon you and join you
             together in goodness
           </p>
-          <p
-            data-copy
-            dir="rtl"
-            lang="ar"
-            className="mt-2 max-w-[320px] text-center font-arabic text-[12px] leading-relaxed text-maroon"
-          >
-            بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
-          </p>
         </div>
       </section>
     </div>
