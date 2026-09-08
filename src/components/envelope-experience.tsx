@@ -92,11 +92,19 @@ export function EnvelopeExperience() {
 
       <div
         ref={inviteRef}
-        className="pointer-events-none absolute inset-x-0 top-[26%] z-[5] flex justify-center opacity-0"
+        className="pointer-events-none absolute inset-x-0 top-[18%] z-[5] flex flex-col items-center opacity-0"
       >
-        <h1 className="font-primary text-[5.5rem] leading-none tracking-[0.18em] text-maroon">
-          A&nbsp;L
+        <img
+          src="/flower.webp"
+          alt=""
+          className="h-[38vw] max-h-44 w-[38vw] max-w-44 rounded-full object-contain animate-[spin_22s_linear_infinite]"
+        />
+        <h1 className="mt-3 font-primary text-5xl leading-none text-maroon">
+          Aryan &amp; Laiba
         </h1>
+        <p className="mt-2 font-primary text-3xl leading-none text-maroon">
+          nikkah ceremony
+        </p>
       </div>
 
       <div ref={envelopeRef} className="absolute inset-0 z-10">
