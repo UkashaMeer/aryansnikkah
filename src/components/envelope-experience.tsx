@@ -92,44 +92,11 @@ export function EnvelopeExperience() {
 
       <div
         ref={inviteRef}
-        className="pointer-events-none absolute inset-x-[12%] top-[14%] z-[5] text-center opacity-0"
+        className="pointer-events-none absolute inset-x-0 top-[26%] z-[5] flex justify-center opacity-0"
       >
-        <p className="font-sans text-[10px] font-medium tracking-[0.18em] text-maroon uppercase">
-          Mr &amp; Mrs. Mansoor Ul Hassan
-        </p>
-        <p className="mt-2 font-sans text-[9px] font-normal tracking-[0.12em] text-black/70 uppercase">
-          Request the honour of your presence at the
-        </p>
-        <h2 className="mt-1 font-primary text-[2.15rem] leading-none text-maroon">
-          Nikkah Ceremony
-        </h2>
-        <p className="mt-1 font-sans text-[9px] tracking-[0.14em] text-black/70 uppercase">
-          of their beloved son
-        </p>
-        <h1 className="mt-1 font-primary text-[2.35rem] leading-none text-maroon">
-          Aryan Ul Hassan
+        <h1 className="font-primary text-[5.5rem] leading-none tracking-[0.18em] text-maroon">
+          A&nbsp;L
         </h1>
-        <p className="mt-1 font-sans text-[9px] tracking-[0.2em] text-black/60 uppercase">
-          With
-        </p>
-        <h1 className="font-primary text-[2.35rem] leading-none text-maroon">
-          Laiba Baig
-        </h1>
-        <p className="mt-1 font-sans text-[9px] tracking-[0.1em] text-black/70 uppercase">
-          Daughter of Mr. &amp; Mrs. Azhar Baig
-        </p>
-        <div className="mx-auto mt-3 h-px w-16 bg-maroon/40" />
-        <p className="mt-3 font-sans text-[10px] font-medium tracking-[0.12em] text-maroon uppercase">
-          InshaAllah Saturday, 17 October 2026
-        </p>
-        <p className="mt-1 font-sans text-[11px] tracking-[0.16em] text-black/80">
-          8:00pm
-        </p>
-        <p className="mt-2 font-sans text-[9px] leading-relaxed tracking-[0.08em] text-black/70 uppercase">
-          Empire Banquet
-          <br />
-          Latifabad Unit 7, Latifabad
-        </p>
       </div>
 
       <div ref={envelopeRef} className="absolute inset-0 z-10">
