@@ -13,7 +13,7 @@ function OctoberCalendar() {
   ];
 
   return (
-    <div className="mt-5 w-full max-w-[280px] rounded-2xl bg-[#fff8f0]/90 px-3 py-4 shadow-[0_8px_30px_rgba(152,32,21,0.18)] ring-1 ring-maroon/20 backdrop-blur-sm">
+    <div className="mt-5 w-full max-w-[340px] rounded-2xl bg-[#fff8f0]/90 px-3 py-4 shadow-[0_8px_30px_rgba(152,32,21,0.18)] ring-1 ring-maroon/20 backdrop-blur-sm">
       <div className="grid grid-cols-7 gap-y-2 text-center font-sans text-[10px] font-bold uppercase tracking-wide text-maroon">
         {OCTOBER_WEEKDAYS.map((day) => (
           <span key={day}>{day}</span>
@@ -401,7 +401,7 @@ export function EnvelopeExperience() {
         />
         <div
           ref={section3CopyRef}
-          className="absolute inset-x-[10%] top-[22%] z-20 flex flex-col items-center text-center"
+          className="absolute inset-x-[10%] top-[25%] z-20 flex flex-col items-center text-center"
         >
           <h1
             data-copy
