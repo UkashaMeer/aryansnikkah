@@ -3,6 +3,54 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
+const OCTOBER_WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+function OctoberCalendar() {
+  const firstWeekday = 4;
+  const cells: Array<number | null> = [
+    ...Array(firstWeekday).fill(null),
+    ...Array.from({ length: 31 }, (_, i) => i + 1),
+  ];
+
+  return (
+    <div className="mt-6 w-full max-w-[260px] text-maroon">
+      <div className="grid grid-cols-7 gap-y-2 text-center font-sans text-[10px] font-semibold uppercase tracking-wide">
+        {OCTOBER_WEEKDAYS.map((day) => (
+          <span key={day}>{day}</span>
+        ))}
+      </div>
+      <div className="mt-2 grid grid-cols-7 gap-y-2 text-center font-sans text-sm">
+        {cells.map((day, i) => (
+          <span
+            key={`${day ?? "e"}-${i}`}
+            className="relative flex h-8 items-center justify-center"
+          >
+            {day === 17 ? (
+              <>
+                <svg
+                  viewBox="0 0 24 24"
+                  className="absolute h-8 w-8 text-maroon"
+                  fill="none"
+                  aria-hidden
+                >
+                  <path
+                    d="M12 20s-7-4.4-9.4-8.6C.6 8.4 2.4 5 6 5c1.9 0 3.3 1.2 4 2.5C10.7 6.2 12.1 5 14 5c3.6 0 5.4 3.4 3.4 6.4C19 15.6 12 20 12 20z"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                  />
+                </svg>
+                <span className="relative z-10 font-semibold">17</span>
+              </>
+            ) : (
+              day ?? ""
+            )}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function EnvelopeExperience() {
   const envelopeRef = useRef<HTMLDivElement>(null);
   const fillRef = useRef<HTMLImageElement>(null);
@@ -16,6 +64,8 @@ export function EnvelopeExperience() {
   const leftPillarRef = useRef<HTMLDivElement>(null);
   const rightPillarRef = useRef<HTMLDivElement>(null);
   const section2CopyRef = useRef<HTMLDivElement>(null);
+  const section3Ref = useRef<HTMLElement>(null);
+  const section3CopyRef = useRef<HTMLDivElement>(null);
   const openedRef = useRef(false);
 
   useEffect(() => {
@@ -70,6 +120,43 @@ export function EnvelopeExperience() {
           duration: 0.85,
           stagger: 0.14,
           delay: 0.25,
+          ease: "power2.out",
+        });
+        observer.disconnect();
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const section = section3Ref.current;
+    const copy = section3CopyRef.current;
+    if (!section || !copy) return;
+
+    const lines = copy.querySelectorAll("[data-copy]");
+    const flowers = section.querySelectorAll("[data-flower]");
+    gsap.set(lines, { opacity: 0, y: 28 });
+    gsap.set(flowers, { opacity: 0, y: -24 });
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        gsap.to(flowers, {
+          opacity: 1,
+          y: 0,
+          duration: 1.1,
+          stagger: 0.1,
+          ease: "power2.out",
+        });
+        gsap.to(lines, {
+          opacity: 1,
+          y: 0,
+          duration: 0.85,
+          stagger: 0.12,
+          delay: 0.2,
           ease: "power2.out",
         });
         observer.disconnect();
@@ -148,7 +235,7 @@ export function EnvelopeExperience() {
 
         <div
           ref={inviteRef}
-          className="pointer-events-none absolute inset-x-0 top-[28%] z-[5] flex translate-y-6 flex-col items-center opacity-0"
+          className="pointer-events-none absolute inset-x-0 top-[20%] z-[5] flex translate-y-6 flex-col items-center opacity-0"
         >
           <img
             src="/Bismillah.webp"
@@ -287,6 +374,49 @@ export function EnvelopeExperience() {
             Daughter of
             Mr &amp; Mrs Azhar Baig
           </p>
+        </div>
+      </section>
+      <section
+        id="section-3"
+        ref={section3Ref}
+        className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
+      >
+        <img
+          src="/scene-two-bg.webp"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <img
+          data-flower
+          src="/flowers-2.webp"
+          alt=""
+          className="absolute top-0 left-0 z-10 w-[42%] max-w-[180px]"
+        />
+        <img
+          data-flower
+          src="/flowers-2.webp"
+          alt=""
+          className="absolute top-0 right-0 z-10 w-[42%] max-w-[180px] scale-x-[-1]"
+        />
+        <div
+          ref={section3CopyRef}
+          className="absolute inset-x-[10%] top-[22%] z-20 flex flex-col items-center text-center"
+        >
+          <h1
+            data-copy
+            className="font-primary text-5xl leading-none text-maroon"
+          >
+            Save the Date
+          </h1>
+          <p
+            data-copy
+            className="mt-2 font-sans text-sm font-semibold tracking-[0.28em] text-maroon uppercase"
+          >
+            October 2026
+          </p>
+          <div data-copy>
+            <OctoberCalendar />
+          </div>
         </div>
       </section>
     </>
