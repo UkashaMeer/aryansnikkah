@@ -97,14 +97,14 @@ export function EnvelopeExperience() {
           ref={bottomRef}
           src="/envolpe-bottom.png"
           alt=""
-          className="absolute inset-0 z-10 h-full w-full object-cover object-bottom mix-blend-lighten will-change-transform"
+          className="absolute bottom-0 left-0 z-10 w-full will-change-transform"
         />
 
         <img
           ref={topRef}
           src="/envolpe-top.png"
           alt=""
-          className="absolute inset-0 z-20 h-full w-full object-cover object-top mix-blend-lighten will-change-transform"
+          className="absolute top-0 left-0 z-20 w-full will-change-transform"
         />
 
         <p
