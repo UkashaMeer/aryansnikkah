@@ -85,6 +85,8 @@ export function EnvelopeExperience() {
   const section4CopyRef = useRef<HTMLDivElement>(null);
   const leftSideRef = useRef<HTMLDivElement>(null);
   const rightSideRef = useRef<HTMLDivElement>(null);
+  const section5Ref = useRef<HTMLElement>(null);
+  const section5CopyRef = useRef<HTMLDivElement>(null);
   const openedRef = useRef(false);
   const [canScroll, setCanScroll] = useState(false);
 
@@ -280,6 +282,33 @@ export function EnvelopeExperience() {
           duration: 0.9,
           delay: 0.35,
           ease: "back.out(1.6)",
+        });
+        observer.disconnect();
+      },
+      { threshold: 0.3 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const section = section5Ref.current;
+    const copy = section5CopyRef.current;
+    if (!section || !copy) return;
+
+    const lines = copy.querySelectorAll("[data-copy]");
+    gsap.set(lines, { opacity: 0, y: 20 });
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        gsap.to(lines, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.18,
+          ease: "power2.out",
         });
         observer.disconnect();
       },
@@ -504,7 +533,7 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
       >
         <img
-          src="/scene-three-bg.jpg"
+          src="/scene-three-bg.webp"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -547,7 +576,7 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
       >
         <img
-          src="/scene-two-bg.jpg"
+          src="/scene-two-bg.webp"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -559,7 +588,7 @@ export function EnvelopeExperience() {
         />
         <div
           ref={leftSideRef}
-          className="pointer-events-none absolute inset-y-0 -left-16 z-20 h-full w-[42%]"
+          className="pointer-events-none absolute inset-y-0 -left-28 z-20 h-full"
         >
           <img
             src="/forth-sides.webp"
@@ -569,7 +598,7 @@ export function EnvelopeExperience() {
         </div>
         <div
           ref={rightSideRef}
-          className="pointer-events-none absolute inset-y-0 -right-16 z-20 h-full w-[42%]"
+          className="pointer-events-none absolute inset-y-0 -right-28 z-20 h-full"
         >
           <img
             src="/forth-sides.webp"
@@ -597,8 +626,8 @@ export function EnvelopeExperience() {
               >
                 In Sha Allah
               </h2>
-              <div className="mx-auto mt-5 flex w-fit flex-col gap-3">
-                <div data-copy className="flex items-start gap-2.5 text-left">
+              <div className="mx-auto mt-5 flex w-full flex-col gap-3">
+                <div data-copy className="flex items-center gap-2.5 text-left">
                   <DetailIcon>
                     <CalendarDays className="h-4 w-4" strokeWidth={1.75} />
                   </DetailIcon>
@@ -606,7 +635,7 @@ export function EnvelopeExperience() {
                     Saturday, 17 October 2026
                   </p>
                 </div>
-                <div data-copy className="flex items-start gap-2.5 text-left">
+                <div data-copy className="flex items-center gap-2.5 text-left">
                   <DetailIcon>
                     <Clock className="h-4 w-4" strokeWidth={1.75} />
                   </DetailIcon>
@@ -614,19 +643,55 @@ export function EnvelopeExperience() {
                     8:00 pm
                   </p>
                 </div>
-                <div data-copy className="flex items-start gap-2.5 text-left">
+                <div data-copy className="flex items-center gap-2.5 text-left">
                   <DetailIcon>
                     <MapPin className="h-4 w-4" strokeWidth={1.75} />
                   </DetailIcon>
                   <p className="font-sans text-[13px] font-semibold leading-snug text-maroon">
                     Empire Banquet
-                    <br />
                     Latifabad Unit 7
                   </p>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+      <section
+        id="section-5"
+        ref={section5Ref}
+        className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
+      >
+        <img
+          src="/fifth-scene-bg.webp"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div
+          ref={section5CopyRef}
+          className="absolute inset-x-0 top-12 z-10 flex flex-col items-center px-6"
+        >
+          <img
+            data-copy
+            src="/last-scene-dua.webp"
+            alt="Barakallahu lakuma"
+            className="w-full max-w-[340px] object-contain"
+          />
+          <p
+            data-copy
+            className="mt-3 max-w-[320px] text-center font-sans text-[12px] font-medium leading-relaxed text-maroon"
+          >
+            May Allah bless you and shower His blessings upon you and join you
+            together in goodness
+          </p>
+          <p
+            data-copy
+            dir="rtl"
+            lang="ar"
+            className="mt-2 max-w-[320px] text-center font-arabic text-[12px] leading-relaxed text-maroon"
+          >
+            بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
+          </p>
         </div>
       </section>
     </div>

@@ -14,6 +14,7 @@
   --color-green: var(--green);
   --font-primary: var(--font-great-vibes);
   --font-sans: var(--font-montserrat);
+  --font-arabic: var(--font-amiri);
 }
 
 html,

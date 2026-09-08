@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Great_Vibes, Montserrat } from "next/font/google";
+import { Amiri, Great_Vibes, Montserrat } from "next/font/google";
 import "./globals.css";
 
 const greatVibes = Great_Vibes({
@@ -12,6 +12,12 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
+});
+
+const amiri = Amiri({
+  variable: "--font-amiri",
+  subsets: ["arabic", "latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${greatVibes.variable} ${montserrat.variable} lock-scroll h-full antialiased`}
+      className={`${greatVibes.variable} ${montserrat.variable} ${amiri.variable} lock-scroll h-full antialiased`}
     >
       <body className="lock-scroll min-h-full bg-black font-primary text-white">
         {children}
