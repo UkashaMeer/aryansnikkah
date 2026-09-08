@@ -555,26 +555,26 @@ export function EnvelopeExperience() {
           data-forth-top
           src="/forth-top.webp"
           alt=""
-          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-1/2 w-full object-contain object-top"
+          className="pointer-events-none absolute inset-x-0 -top-30 z-10 h-1/2 w-full object-contain object-top"
         />
         <div
           ref={leftSideRef}
-          className="pointer-events-none absolute inset-y-0 left-0 z-20 h-full w-[42%]"
+          className="pointer-events-none absolute inset-y-0 -left-16 z-20 h-full w-[42%]"
         >
           <img
             src="/forth-sides.webp"
             alt=""
-            className="h-full w-full origin-center object-contain object-left object-top scale-x-[-1]"
+            className="h-full w-full origin-center object-cover object-left object-top scale-x-[-1]"
           />
         </div>
         <div
           ref={rightSideRef}
-          className="pointer-events-none absolute inset-y-0 right-0 z-20 h-full w-[42%]"
+          className="pointer-events-none absolute inset-y-0 -right-16 z-20 h-full w-[42%]"
         >
           <img
             src="/forth-sides.webp"
             alt=""
-            className="h-full w-full object-contain object-left object-top"
+            className="h-full w-full origin-center object-cover object-left object-top"
           />
         </div>
         <div
