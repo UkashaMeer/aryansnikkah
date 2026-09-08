@@ -207,7 +207,7 @@ export function EnvelopeExperience() {
         />
         <div
           ref={leftPillarRef}
-          className="absolute inset-y-0 left-0 z-10 h-full w-[30%] overflow-hidden"
+          className="absolute inset-y-0 left-0 z-10 h-full w-[18%] overflow-hidden"
         >
           <img
             src="/sidepillars.webp"
@@ -217,12 +217,12 @@ export function EnvelopeExperience() {
         </div>
         <div
           ref={rightPillarRef}
-          className="absolute inset-y-0 right-0 z-10 h-full w-[30%] overflow-hidden"
+          className="absolute inset-y-0 right-0 z-10 h-full w-[18%] overflow-hidden"
         >
           <img
             src="/sidepillars.webp"
             alt=""
-            className="h-full w-full -scale-x-100 object-cover object-left"
+            className="h-full w-full origin-center object-cover object-right scale-x-[-1]"
           />
         </div>
       </section>
