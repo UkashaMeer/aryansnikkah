@@ -225,11 +225,9 @@ export function EnvelopeExperience() {
             className="h-full w-full origin-center object-cover object-right scale-x-[-1]"
           />
         </div>
-        <div className="absolute inset-x-[16%] top-8 z-20 flex flex-col items-center text-center">
+        <div className="absolute inset-x-[16%] top-20 z-20 flex flex-col items-center text-center">
           <p className="font-sans text-[14px] font-semibold uppercase leading-relaxed text-maroon">
-            Mr &amp; Mrs. Mansoor Ul Hassan
-            <br />
-            Request
+            Mr &amp; Mrs. Mansoor Ul Hassan Request
             <br />
             the honour of your presence at the
           </p>
@@ -238,6 +236,20 @@ export function EnvelopeExperience() {
           </h1>
           <p className="mt-2 font-sans text-[14px] font-semibold uppercase leading-relaxed text-maroon">
             Of their beloved son
+          </p>
+          <h1 className="mt-3 font-primary text-5xl font-medium leading-none text-maroon">
+            Aryan Ul Hassan
+          </h1>
+          <p className="mt-2 font-sans text-[14px] font-semibold uppercase leading-relaxed text-maroon">
+            With
+          </p>
+          <h1 className="mt-3 font-primary text-5xl font-medium leading-none text-maroon">
+            Laiba Baig
+          </h1>
+          <p className="mt-2 font-sans text-[14px] font-semibold uppercase leading-relaxed text-maroon">
+            Daughter of
+            <br />
+            Mr &amp; Mrs Azhar Baig
           </p>
         </div>
       </section>
