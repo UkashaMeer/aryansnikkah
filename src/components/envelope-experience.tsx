@@ -564,7 +564,7 @@ export function EnvelopeExperience() {
           <img
             src="/forth-sides.webp"
             alt=""
-            className="h-full w-full object-contain object-left object-top"
+            className="h-full w-full origin-center object-contain object-left object-top scale-x-[-1]"
           />
         </div>
         <div
@@ -574,14 +574,14 @@ export function EnvelopeExperience() {
           <img
             src="/forth-sides.webp"
             alt=""
-            className="h-full w-full origin-center object-contain object-left object-top scale-x-[-1]"
+            className="h-full w-full object-contain object-left object-top"
           />
         </div>
         <div
           ref={section4CopyRef}
-          className="absolute inset-x-[12%] top-[46%] z-30 -translate-y-1/2"
+          className="absolute inset-0 z-30 flex items-center justify-center px-[12%]"
         >
-          <div className="relative overflow-visible">
+          <div className="relative w-full overflow-visible">
             <div className="pointer-events-none absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2">
               <img
                 data-forth-ornament
