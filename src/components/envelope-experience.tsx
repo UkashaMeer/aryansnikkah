@@ -15,6 +15,7 @@ export function EnvelopeExperience() {
   const section2Ref = useRef<HTMLElement>(null);
   const leftPillarRef = useRef<HTMLDivElement>(null);
   const rightPillarRef = useRef<HTMLDivElement>(null);
+  const section2CopyRef = useRef<HTMLDivElement>(null);
   const openedRef = useRef(false);
 
   useEffect(() => {
@@ -28,6 +29,7 @@ export function EnvelopeExperience() {
       if (inviteRef.current) {
         gsap.to(inviteRef.current, {
           opacity: 1,
+          y: 0,
           duration: 1.6,
           ease: "power1.out",
         });
@@ -49,16 +51,27 @@ export function EnvelopeExperience() {
     const section = section2Ref.current;
     const left = leftPillarRef.current;
     const right = rightPillarRef.current;
-    if (!section || !left || !right) return;
+    const copy = section2CopyRef.current;
+    if (!section || !left || !right || !copy) return;
 
+    const lines = copy.querySelectorAll("[data-copy]");
     gsap.set(left, { xPercent: -100 });
     gsap.set(right, { xPercent: 100 });
+    gsap.set(lines, { opacity: 0, y: 28 });
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
         gsap.to(left, { xPercent: 0, duration: 1.5, ease: "power3.out" });
         gsap.to(right, { xPercent: 0, duration: 1.5, ease: "power3.out" });
+        gsap.to(lines, {
+          opacity: 1,
+          y: 0,
+          duration: 0.85,
+          stagger: 0.14,
+          delay: 0.25,
+          ease: "power2.out",
+        });
         observer.disconnect();
       },
       { threshold: 0.35 },
@@ -122,7 +135,7 @@ export function EnvelopeExperience() {
 
   return (
     <>
-      <div className="relative mx-auto h-dvh w-full max-w-md overflow-hidden bg-black">
+      <div className="relative mx-auto h-screen w-full max-w-md overflow-hidden bg-black">
         <video
           ref={videoRef}
           className="absolute inset-0 z-0 h-full w-full object-cover"
@@ -135,7 +148,7 @@ export function EnvelopeExperience() {
 
         <div
           ref={inviteRef}
-          className="pointer-events-none absolute inset-x-0 top-[28%] z-[5] flex flex-col items-center opacity-0"
+          className="pointer-events-none absolute inset-x-0 top-[28%] z-[5] flex translate-y-6 flex-col items-center opacity-0"
         >
           <img
             src="/Bismillah.webp"
@@ -198,7 +211,7 @@ export function EnvelopeExperience() {
       <section
         id="section-2"
         ref={section2Ref}
-        className="relative mx-auto h-dvh w-full max-w-md overflow-hidden"
+        className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
       >
         <img
           src="/scene-two-bg.webp"
@@ -225,28 +238,52 @@ export function EnvelopeExperience() {
             className="h-full w-full origin-center object-cover object-right scale-x-[-1]"
           />
         </div>
-        <div className="absolute inset-x-[16%] top-24  z-20 flex flex-col items-center text-center">
-          <p className="font-sans text-[12px] font-semibold uppercase leading-relaxed text-maroon">
+        <div
+          ref={section2CopyRef}
+          className="absolute inset-x-[16%] top-24 z-20 flex flex-col items-center text-center"
+        >
+          <p
+            data-copy
+            className="font-sans text-[12px] font-semibold uppercase leading-relaxed text-maroon"
+          >
             Mr &amp; Mrs. Mansoor Ul Hassan Request
             <br />
             the honour of your presence at the
           </p>
-          <h1 className="mt-4 font-primary text-4xl font-medium leading-none text-maroon">
+          <h1
+            data-copy
+            className="mt-4 font-primary text-4xl font-medium leading-none text-maroon"
+          >
             Nikkah Ceremony
           </h1>
-          <p className="mt-2 font-sans text-[12px] font-semibold uppercase leading-relaxed text-maroon">
+          <p
+            data-copy
+            className="mt-2 font-sans text-[12px] font-semibold uppercase leading-relaxed text-maroon"
+          >
             Of their beloved son
           </p>
-          <h1 className="mt-3 font-primary text-4xl font-medium leading-none text-maroon">
+          <h1
+            data-copy
+            className="mt-3 font-primary text-4xl font-medium leading-none text-maroon"
+          >
             Aryan Ul Hassan
           </h1>
-          <p className="mt-2 font-sans text-[14px] font-semibold uppercase leading-relaxed text-maroon">
+          <p
+            data-copy
+            className="mt-2 font-sans text-[14px] font-semibold uppercase leading-relaxed text-maroon"
+          >
             With
           </p>
-          <h1 className="mt-3 font-primary text-4xl font-medium leading-none text-maroon">
+          <h1
+            data-copy
+            className="mt-3 font-primary text-4xl font-medium leading-none text-maroon"
+          >
             Laiba Baig
           </h1>
-          <p className="mt-2 font-sans text-[12px] font-semibold uppercase leading-relaxed text-maroon">
+          <p
+            data-copy
+            className="mt-2 font-sans text-[12px] font-semibold uppercase leading-relaxed text-maroon"
+          >
             Daughter of
             Mr &amp; Mrs Azhar Baig
           </p>
