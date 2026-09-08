@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 const OCTOBER_WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -13,35 +13,40 @@ function OctoberCalendar() {
   ];
 
   return (
-    <div className="mt-5 w-full max-w-[340px] rounded-2xl bg-[#fff8f0]/90 px-3 py-4 shadow-[0_8px_30px_rgba(152,32,21,0.18)] ring-1 ring-maroon/20 backdrop-blur-sm">
+    <div className="mt-5 w-full max-w-[340px] overflow-visible rounded-2xl bg-[#fff8f0]/90 px-3 py-4 shadow-[0_8px_30px_rgba(152,32,21,0.18)] ring-1 ring-maroon/20 backdrop-blur-sm">
       <div className="grid grid-cols-7 gap-y-2 text-center font-sans text-[10px] font-bold uppercase tracking-wide text-maroon">
         {OCTOBER_WEEKDAYS.map((day) => (
           <span key={day}>{day}</span>
         ))}
       </div>
-      <div className="mt-2 grid grid-cols-7 gap-y-1.5 text-center font-sans text-[15px] font-semibold text-maroon">
+      <div className="mt-2 grid grid-cols-7 gap-y-1.5 overflow-visible text-center font-sans text-[15px] font-semibold text-maroon">
         {cells.map((day, i) => (
           <span
             key={`${day ?? "e"}-${i}`}
-            className="relative flex h-8 items-center justify-center"
+            className="relative flex h-10 items-center justify-center overflow-visible"
           >
             {day === 17 ? (
-              <>
+              <span
+                data-heart
+                className="relative z-10 flex h-11 w-11 items-center justify-center overflow-visible"
+              >
                 <svg
-                  viewBox="0 0 24 24"
-                  className="absolute h-9 w-9 text-maroon"
+                  viewBox="0 0 32 32"
+                  className="absolute h-12 w-12 overflow-visible"
                   aria-hidden
                 >
                   <path
-                    d="M12 20s-7-4.4-9.4-8.6C.6 8.4 2.4 5 6 5c1.9 0 3.3 1.2 4 2.5C10.7 6.2 12.1 5 14 5c3.6 0 5.4 3.4 3.4 6.4C19 15.6 12 20 12 20z"
-                    fill="currentColor"
-                    fillOpacity="0.18"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
+                    d="M16 27.6 14.07 25.84C8.53 21.12 4 17.2 4 12.33 4 8.36 6.56 6 10.67 6c2.32 0 4.28 1.08 5.33 2.76C17.05 7.08 19.24 6 21.33 6 25.44 6 28 8.36 28 12.33c0 4.87-4.53 8.79-10.07 13.51Z"
+                    fill="#f8d5cc"
+                    stroke="#982015"
+                    strokeWidth="1.15"
+                    strokeLinejoin="round"
                   />
                 </svg>
-                <span className="relative z-10 text-base font-bold">17</span>
-              </>
+                <span className="relative z-10 font-sans text-[13px] font-bold leading-none text-maroon">
+                  17
+                </span>
+              </span>
             ) : (
               day ?? ""
             )}
@@ -68,6 +73,7 @@ export function EnvelopeExperience() {
   const section3Ref = useRef<HTMLElement>(null);
   const section3CopyRef = useRef<HTMLDivElement>(null);
   const openedRef = useRef(false);
+  const [canScroll, setCanScroll] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -77,6 +83,7 @@ export function EnvelopeExperience() {
       video.pause();
       document.documentElement.classList.remove("lock-scroll");
       document.body.classList.remove("lock-scroll");
+      setCanScroll(true);
       if (inviteRef.current) {
         gsap.to(inviteRef.current, {
           opacity: 1,
@@ -96,6 +103,37 @@ export function EnvelopeExperience() {
 
     video.addEventListener("ended", onEnded);
     return () => video.removeEventListener("ended", onEnded);
+  }, []);
+
+  useEffect(() => {
+    const blockScroll = (event: Event) => {
+      if (!document.body.classList.contains("lock-scroll")) return;
+      event.preventDefault();
+    };
+
+    const blockKeys = (event: KeyboardEvent) => {
+      if (!document.body.classList.contains("lock-scroll")) return;
+      const keys = [
+        "ArrowUp",
+        "ArrowDown",
+        "PageUp",
+        "PageDown",
+        "Home",
+        "End",
+        " ",
+        "Spacebar",
+      ];
+      if (keys.includes(event.key)) event.preventDefault();
+    };
+
+    window.addEventListener("wheel", blockScroll, { passive: false });
+    window.addEventListener("touchmove", blockScroll, { passive: false });
+    window.addEventListener("keydown", blockKeys);
+    return () => {
+      window.removeEventListener("wheel", blockScroll);
+      window.removeEventListener("touchmove", blockScroll);
+      window.removeEventListener("keydown", blockKeys);
+    };
   }, []);
 
   useEffect(() => {
@@ -160,6 +198,9 @@ export function EnvelopeExperience() {
           delay: 0.2,
           ease: "power2.out",
         });
+        window.setTimeout(() => {
+          section.querySelector("[data-heart]")?.classList.add("heart-highlight");
+        }, 450);
         observer.disconnect();
       },
       { threshold: 0.35 },
@@ -222,7 +263,7 @@ export function EnvelopeExperience() {
   }
 
   return (
-    <>
+    <div className={canScroll ? undefined : "h-screen overflow-hidden"}>
       <div className="relative mx-auto h-screen w-full max-w-md overflow-hidden bg-black">
         <video
           ref={videoRef}
@@ -236,7 +277,7 @@ export function EnvelopeExperience() {
 
         <div
           ref={inviteRef}
-          className="pointer-events-none absolute inset-x-0 top-[24%] z-[5] flex translate-y-6 flex-col items-center opacity-0"
+          className="pointer-events-none absolute inset-x-0 top-[28%] z-[5] flex translate-y-6 flex-col items-center opacity-0"
         >
           <img
             src="/Bismillah.webp"
@@ -420,6 +461,6 @@ export function EnvelopeExperience() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
