@@ -13,13 +13,13 @@ function OctoberCalendar() {
   ];
 
   return (
-    <div className="mt-6 w-full max-w-[260px] text-maroon">
-      <div className="grid grid-cols-7 gap-y-2 text-center font-sans text-[10px] font-semibold uppercase tracking-wide">
+    <div className="mt-5 w-full max-w-[280px] rounded-2xl bg-[#fff8f0]/90 px-3 py-4 shadow-[0_8px_30px_rgba(152,32,21,0.18)] ring-1 ring-maroon/20 backdrop-blur-sm">
+      <div className="grid grid-cols-7 gap-y-2 text-center font-sans text-[10px] font-bold uppercase tracking-wide text-maroon">
         {OCTOBER_WEEKDAYS.map((day) => (
           <span key={day}>{day}</span>
         ))}
       </div>
-      <div className="mt-2 grid grid-cols-7 gap-y-2 text-center font-sans text-sm">
+      <div className="mt-2 grid grid-cols-7 gap-y-1.5 text-center font-sans text-[15px] font-semibold text-maroon">
         {cells.map((day, i) => (
           <span
             key={`${day ?? "e"}-${i}`}
@@ -29,17 +29,18 @@ function OctoberCalendar() {
               <>
                 <svg
                   viewBox="0 0 24 24"
-                  className="absolute h-8 w-8 text-maroon"
-                  fill="none"
+                  className="absolute h-9 w-9 text-maroon"
                   aria-hidden
                 >
                   <path
                     d="M12 20s-7-4.4-9.4-8.6C.6 8.4 2.4 5 6 5c1.9 0 3.3 1.2 4 2.5C10.7 6.2 12.1 5 14 5c3.6 0 5.4 3.4 3.4 6.4C19 15.6 12 20 12 20z"
+                    fill="currentColor"
+                    fillOpacity="0.18"
                     stroke="currentColor"
-                    strokeWidth="1.4"
+                    strokeWidth="1.6"
                   />
                 </svg>
-                <span className="relative z-10 font-semibold">17</span>
+                <span className="relative z-10 text-base font-bold">17</span>
               </>
             ) : (
               day ?? ""
@@ -235,7 +236,7 @@ export function EnvelopeExperience() {
 
         <div
           ref={inviteRef}
-          className="pointer-events-none absolute inset-x-0 top-[20%] z-[5] flex translate-y-6 flex-col items-center opacity-0"
+          className="pointer-events-none absolute inset-x-0 top-[24%] z-[5] flex translate-y-6 flex-col items-center opacity-0"
         >
           <img
             src="/Bismillah.webp"
@@ -382,7 +383,7 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
       >
         <img
-          src="/scene-two-bg.webp"
+          src="/scene-three-bg.jpg"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -390,13 +391,13 @@ export function EnvelopeExperience() {
           data-flower
           src="/flowers-2.webp"
           alt=""
-          className="absolute top-0 left-0 z-10 w-[42%] max-w-[180px]"
+          className="absolute -top-10 -left-10 z-10 w-[42%] max-w-[180px]"
         />
         <img
           data-flower
           src="/flowers-2.webp"
           alt=""
-          className="absolute top-0 right-0 z-10 w-[42%] max-w-[180px] scale-x-[-1]"
+          className="absolute -top-10 -right-10 z-10 w-[42%] max-w-[180px] scale-x-[-1]"
         />
         <div
           ref={section3CopyRef}
@@ -404,13 +405,13 @@ export function EnvelopeExperience() {
         >
           <h1
             data-copy
-            className="font-primary text-5xl leading-none text-maroon"
+            className="font-primary text-5xl leading-none text-maroon drop-shadow-[0_2px_8px_rgba(255,248,240,0.9)]"
           >
             Save the Date
           </h1>
           <p
             data-copy
-            className="mt-2 font-sans text-sm font-semibold tracking-[0.28em] text-maroon uppercase"
+            className="mt-2 font-sans text-sm font-semibold tracking-[0.28em] text-maroon uppercase drop-shadow-[0_1px_6px_rgba(255,248,240,0.9)]"
           >
             October 2026
           </p>
