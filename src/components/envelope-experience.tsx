@@ -93,7 +93,7 @@ export function EnvelopeExperience() {
 
       <div
         ref={inviteRef}
-        className="pointer-events-none absolute inset-x-0 top-[26%] z-[5] flex flex-col items-center opacity-0"
+        className="pointer-events-none absolute inset-x-0 top-[28%] z-[5] flex flex-col items-center opacity-0"
       >
         <img
           src="/Bismillah.webp"
