@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import gsap from "gsap";
+import { CalendarDays, Clock, MapPin } from "lucide-react";
 
 const OCTOBER_WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -232,9 +233,9 @@ export function EnvelopeExperience() {
     const lines = copy.querySelectorAll("[data-copy]");
     const topDrape = section.querySelector("[data-forth-top]");
     const ornament = section.querySelector("[data-forth-ornament]");
-    gsap.set(left, { xPercent: -110, opacity: 0 });
-    gsap.set(right, { xPercent: 110, opacity: 0 });
-    gsap.set(topDrape, { yPercent: -30, opacity: 0 });
+    gsap.set(left, { xPercent: -40 });
+    gsap.set(right, { xPercent: 40 });
+    gsap.set(topDrape, { yPercent: -20, opacity: 0 });
     gsap.set(copy, { opacity: 0 });
     gsap.set(lines, { opacity: 0, y: 18 });
     gsap.set(ornament, { opacity: 0, y: -16, scale: 0.72 });
@@ -250,13 +251,11 @@ export function EnvelopeExperience() {
         });
         gsap.to(left, {
           xPercent: 0,
-          opacity: 1,
           duration: 1.3,
           ease: "power3.out",
         });
         gsap.to(right, {
           xPercent: 0,
-          opacity: 1,
           duration: 1.3,
           ease: "power3.out",
         });
@@ -556,26 +555,26 @@ export function EnvelopeExperience() {
           data-forth-top
           src="/forth-top.webp"
           alt=""
-          className="pointer-events-none absolute inset-x-0 top-0 z-20 w-full object-contain object-top"
+          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-1/2 w-full object-contain object-top"
         />
         <div
           ref={leftSideRef}
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 h-full w-[32%] overflow-hidden"
+          className="pointer-events-none absolute inset-y-0 left-0 z-20 h-full w-[42%]"
         >
           <img
             src="/forth-sides.webp"
             alt=""
-            className="h-full w-full object-cover object-left"
+            className="h-full w-full object-contain object-left object-top"
           />
         </div>
         <div
           ref={rightSideRef}
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 h-full w-[32%] overflow-hidden"
+          className="pointer-events-none absolute inset-y-0 right-0 z-20 h-full w-[42%]"
         >
           <img
             src="/forth-sides.webp"
             alt=""
-            className="h-full w-full origin-center object-cover object-left scale-x-[-1]"
+            className="h-full w-full origin-center object-contain object-left object-top scale-x-[-1]"
           />
         </div>
         <div
@@ -601,17 +600,7 @@ export function EnvelopeExperience() {
               <div className="mx-auto mt-5 flex w-fit flex-col gap-3">
                 <div data-copy className="flex items-start gap-2.5 text-left">
                   <DetailIcon>
-                    <svg
-                      viewBox="0 0 24 24"
-                      className="h-3.5 w-3.5"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      aria-hidden
-                    >
-                      <rect x="3.5" y="5" width="17" height="15.5" rx="2" />
-                      <path d="M3.5 10h17M8 3.5v3.5M16 3.5v3.5" />
-                    </svg>
+                    <CalendarDays className="h-4 w-4" strokeWidth={1.75} />
                   </DetailIcon>
                   <p className="font-sans text-[13px] font-semibold leading-snug text-maroon">
                     Saturday, 17 October 2026
@@ -619,17 +608,7 @@ export function EnvelopeExperience() {
                 </div>
                 <div data-copy className="flex items-start gap-2.5 text-left">
                   <DetailIcon>
-                    <svg
-                      viewBox="0 0 24 24"
-                      className="h-3.5 w-3.5"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      aria-hidden
-                    >
-                      <circle cx="12" y="12" r="8.25" />
-                      <path d="M12 7.5V12l3.2 1.8" />
-                    </svg>
+                    <Clock className="h-4 w-4" strokeWidth={1.75} />
                   </DetailIcon>
                   <p className="font-sans text-[13px] font-semibold leading-snug text-maroon">
                     8:00 pm
@@ -637,17 +616,7 @@ export function EnvelopeExperience() {
                 </div>
                 <div data-copy className="flex items-start gap-2.5 text-left">
                   <DetailIcon>
-                    <svg
-                      viewBox="0 0 24 24"
-                      className="h-3.5 w-3.5"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      aria-hidden
-                    >
-                      <path d="M12 21s-6.5-5.6-6.5-10.3a6.5 6.5 0 1 1 13 0C18.5 15.4 12 21 12 21z" />
-                      <circle cx="12" y="10.7" r="2.15" />
-                    </svg>
+                    <MapPin className="h-4 w-4" strokeWidth={1.75} />
                   </DetailIcon>
                   <p className="font-sans text-[13px] font-semibold leading-snug text-maroon">
                     Empire Banquet
