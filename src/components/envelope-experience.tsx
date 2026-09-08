@@ -225,7 +225,7 @@ export function EnvelopeExperience() {
             className="h-full w-full origin-center object-cover object-right scale-x-[-1]"
           />
         </div>
-        <div className="absolute inset-x-[16%] top-20 z-20 flex flex-col items-center text-center">
+        <div className="absolute inset-x-[16%] top-10 z-20 flex flex-col items-center text-center">
           <p className="font-sans text-[14px] font-semibold uppercase leading-relaxed text-maroon">
             Mr &amp; Mrs. Mansoor Ul Hassan Request
             <br />
