@@ -5,6 +5,7 @@ import gsap from "gsap";
 
 export function EnvelopeExperience() {
   const envelopeRef = useRef<HTMLDivElement>(null);
+  const fillRef = useRef<HTMLImageElement>(null);
   const topRef = useRef<HTMLImageElement>(null);
   const bottomRef = useRef<HTMLImageElement>(null);
   const hintRef = useRef<HTMLParagraphElement>(null);
@@ -28,6 +29,7 @@ export function EnvelopeExperience() {
     openedRef.current = true;
 
     const envelope = envelopeRef.current;
+    const fill = fillRef.current;
     const top = topRef.current;
     const bottom = bottomRef.current;
     const hint = hintRef.current;
@@ -59,7 +61,7 @@ export function EnvelopeExperience() {
     );
 
     tl.to(
-      bottom,
+      [bottom, fill],
       {
         yPercent: 120,
         duration: 1.75,
@@ -83,7 +85,7 @@ export function EnvelopeExperience() {
 
       <div
         ref={envelopeRef}
-        className="absolute inset-0 z-10 bg-black"
+        className="absolute inset-0 z-10"
         style={{ perspective: "1200px" }}
       >
         <button
@@ -93,7 +95,14 @@ export function EnvelopeExperience() {
           onClick={openEnvelope}
         />
 
-        <div className="absolute inset-x-0 top-0">
+        <img
+          ref={fillRef}
+          src="/fill.jpg"
+          alt=""
+          className="absolute inset-0 z-0 h-full w-full object-cover will-change-transform"
+        />
+
+        <div className="absolute inset-x-0 top-0 z-10">
           <img
             ref={topRef}
             src="/envolpe-top.png"
@@ -102,15 +111,15 @@ export function EnvelopeExperience() {
           />
           <img
             ref={bottomRef}
-            src="/fill.jpg"
+            src="/envolpe-bottom.png"
             alt=""
-            className="relative z-10 -mt-[60%] block w-full will-change-transform"
+            className="relative z-10 -mt-[42%] block w-full will-change-transform"
           />
         </div>
 
         <p
           ref={hintRef}
-          className="pointer-events-none absolute inset-x-0 top-[72%] z-40 text-center text-3xl text-white"
+          className="pointer-events-none absolute inset-x-0 top-[68%] z-40 text-center text-3xl text-white"
         >
           Tap to open
         </p>
