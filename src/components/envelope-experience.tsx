@@ -96,21 +96,17 @@ export function EnvelopeExperience() {
         className="pointer-events-none absolute inset-x-0 top-[26%] z-[5] flex flex-col items-center opacity-0"
       >
         <img
-          src="/flower.webp"
+          src="/Bismillah.webp"
           alt=""
-          className="h-[38vw] max-h-44 w-[40vw] max-w-44 rounded-full object-contain animate-[spin_22s_linear_infinite]"
+          className="h-[38vw] max-h-44 max-w-40 ml-4 rounded-full object-contain"
         />
-        <p className="mt-18 font-sans text-[14px] leading-none text-maroon text-center uppercase leading-relaxed">
-          Mr & Mrs. Mansoor Ul Hassan
+        <p className="mt-18 font-sans font-semibold text-[14px] leading-none text-maroon text-center uppercase leading-relaxed">
+        Mr & Mrs. Mansoor Ul Hassan
+          Request <br /> the honour of your presence at the
         </p>
-        <h1 className="mt-2 font-primary text-5xl leading-none text-maroon">
-          Aryan &amp; Laiba
+        <h1 className="mt-4 font-primary font-medium text-5xl leading-none text-maroon">
+        Nikkah Ceremony
         </h1>
-        <p className="mt-2 font-sans text-[14px] leading-none text-maroon text-center uppercase leading-relaxed">
-          Request the honour of your presence        <br /> at the
-
-          Nikkah Ceremony
-        </p>
       </div>
 
       <div ref={envelopeRef} className="absolute inset-0 z-10">
@@ -139,7 +135,7 @@ export function EnvelopeExperience() {
             ref={bottomRef}
             src="/envolpe-bottom.webp"
             alt=""
-            className="relative z-10 -mt-[28%] block w-full will-change-transform"
+            className="relative z-10 -mt-[24%] block w-full will-change-transform"
           />
         </div>
 
