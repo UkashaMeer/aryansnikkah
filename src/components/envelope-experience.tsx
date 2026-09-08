@@ -93,12 +93,12 @@ export function EnvelopeExperience() {
 
       <div
         ref={inviteRef}
-        className="pointer-events-none absolute inset-x-0 top-[25%] z-[5] flex flex-col items-center opacity-0"
+        className="pointer-events-none absolute inset-x-0 top-[26%] z-[5] flex flex-col items-center opacity-0"
       >
         <img
           src="/flower.webp"
           alt=""
-          className="h-[38vw] max-h-44 w-[30vw] max-w-44 rounded-full object-contain animate-[spin_22s_linear_infinite]"
+          className="h-[38vw] max-h-44 w-[40vw] max-w-44 rounded-full object-contain animate-[spin_22s_linear_infinite]"
         />
         <p className="mt-18 font-sans text-[14px] leading-none text-maroon text-center uppercase leading-relaxed">
           Mr & Mrs. Mansoor Ul Hassan
