@@ -12,6 +12,9 @@ export function EnvelopeExperience() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const inviteRef = useRef<HTMLDivElement>(null);
   const scrollBtnRef = useRef<HTMLButtonElement>(null);
+  const section2Ref = useRef<HTMLElement>(null);
+  const leftPillarRef = useRef<HTMLDivElement>(null);
+  const rightPillarRef = useRef<HTMLDivElement>(null);
   const openedRef = useRef(false);
 
   useEffect(() => {
@@ -40,6 +43,29 @@ export function EnvelopeExperience() {
 
     video.addEventListener("ended", onEnded);
     return () => video.removeEventListener("ended", onEnded);
+  }, []);
+
+  useEffect(() => {
+    const section = section2Ref.current;
+    const left = leftPillarRef.current;
+    const right = rightPillarRef.current;
+    if (!section || !left || !right) return;
+
+    gsap.set(left, { xPercent: -100 });
+    gsap.set(right, { xPercent: 100 });
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        gsap.to(left, { xPercent: 0, duration: 1.5, ease: "power3.out" });
+        gsap.to(right, { xPercent: 0, duration: 1.5, ease: "power3.out" });
+        observer.disconnect();
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
   }, []);
 
   function openEnvelope() {
@@ -171,8 +197,35 @@ export function EnvelopeExperience() {
       </div>
       <section
         id="section-2"
-        className="mx-auto min-h-dvh w-full max-w-md bg-black"
-      />
+        ref={section2Ref}
+        className="relative mx-auto h-dvh w-full max-w-md overflow-hidden"
+      >
+        <img
+          src="/scene-two-bg.webp"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div
+          ref={leftPillarRef}
+          className="absolute inset-y-0 left-0 z-10 h-full w-[30%] overflow-hidden"
+        >
+          <img
+            src="/sidepillars.webp"
+            alt=""
+            className="h-full w-full object-cover object-right"
+          />
+        </div>
+        <div
+          ref={rightPillarRef}
+          className="absolute inset-y-0 right-0 z-10 h-full w-[30%] overflow-hidden"
+        >
+          <img
+            src="/sidepillars.webp"
+            alt=""
+            className="h-full w-full -scale-x-100 object-cover object-left"
+          />
+        </div>
+      </section>
     </>
   );
 }
