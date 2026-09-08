@@ -10,6 +10,7 @@ export function EnvelopeExperience() {
   const bottomRef = useRef<HTMLImageElement>(null);
   const hintRef = useRef<HTMLParagraphElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const inviteRef = useRef<HTMLDivElement>(null);
   const openedRef = useRef(false);
 
   useEffect(() => {
@@ -18,6 +19,13 @@ export function EnvelopeExperience() {
 
     const onEnded = () => {
       video.pause();
+      if (inviteRef.current) {
+        gsap.to(inviteRef.current, {
+          opacity: 1,
+          duration: 1.6,
+          ease: "power1.out",
+        });
+      }
     };
 
     video.addEventListener("ended", onEnded);
@@ -46,14 +54,14 @@ export function EnvelopeExperience() {
       },
     });
 
-    tl.to(fill, { opacity: 0, duration: 0.05, ease: "none" }, 0);
+    tl.to(fill, { opacity: 0, duration: 2, ease: "none" }, 0);
     tl.to(hint, { opacity: 0, duration: 0.3, ease: "power1.out" }, 0);
 
     tl.to(
       top,
       {
         yPercent: -120,
-        duration: 2.6,
+        duration: 3,
         ease: "power2.inOut",
       },
       0,
@@ -63,7 +71,7 @@ export function EnvelopeExperience() {
       bottom,
       {
         yPercent: 120,
-        duration: 2.6,
+        duration: 3,
         ease: "power2.inOut",
       },
       0,
@@ -81,6 +89,48 @@ export function EnvelopeExperience() {
       >
         Your browser does not support the video tag.
       </video>
+
+      <div
+        ref={inviteRef}
+        className="pointer-events-none absolute inset-x-[12%] top-[14%] z-[5] text-center opacity-0"
+      >
+        <p className="font-sans text-[10px] font-medium tracking-[0.18em] text-maroon uppercase">
+          Mr &amp; Mrs. Mansoor Ul Hassan
+        </p>
+        <p className="mt-2 font-sans text-[9px] font-normal tracking-[0.12em] text-black/70 uppercase">
+          Request the honour of your presence at the
+        </p>
+        <h2 className="mt-1 font-primary text-[2.15rem] leading-none text-maroon">
+          Nikkah Ceremony
+        </h2>
+        <p className="mt-1 font-sans text-[9px] tracking-[0.14em] text-black/70 uppercase">
+          of their beloved son
+        </p>
+        <h1 className="mt-1 font-primary text-[2.35rem] leading-none text-maroon">
+          Aryan Ul Hassan
+        </h1>
+        <p className="mt-1 font-sans text-[9px] tracking-[0.2em] text-black/60 uppercase">
+          With
+        </p>
+        <h1 className="font-primary text-[2.35rem] leading-none text-maroon">
+          Laiba Baig
+        </h1>
+        <p className="mt-1 font-sans text-[9px] tracking-[0.1em] text-black/70 uppercase">
+          Daughter of Mr. &amp; Mrs. Azhar Baig
+        </p>
+        <div className="mx-auto mt-3 h-px w-16 bg-maroon/40" />
+        <p className="mt-3 font-sans text-[10px] font-medium tracking-[0.12em] text-maroon uppercase">
+          InshaAllah Saturday, 17 October 2026
+        </p>
+        <p className="mt-1 font-sans text-[11px] tracking-[0.16em] text-black/80">
+          8:00pm
+        </p>
+        <p className="mt-2 font-sans text-[9px] leading-relaxed tracking-[0.08em] text-black/70 uppercase">
+          Empire Banquet
+          <br />
+          Latifabad Unit 7, Latifabad
+        </p>
+      </div>
 
       <div ref={envelopeRef} className="absolute inset-0 z-10">
         <button
@@ -114,7 +164,7 @@ export function EnvelopeExperience() {
 
         <p
           ref={hintRef}
-          className="pointer-events-none absolute inset-x-0 top-[68%] z-40 text-center text-3xl text-white"
+          className="pointer-events-none absolute inset-x-0 top-[72%] z-40 text-center text-3xl text-white"
         >
           Tap to open
         </p>
