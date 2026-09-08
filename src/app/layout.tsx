@@ -19,7 +19,11 @@ export const metadata: Metadata = {
   description: "You are cordially invited",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="en"

@@ -1,13 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 export function EnvelopeExperience() {
   const envelopeRef = useRef<HTMLDivElement>(null);
-  const topRef = useRef<HTMLDivElement>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const topRef = useRef<HTMLImageElement>(null);
+  const bottomRef = useRef<HTMLImageElement>(null);
   const hintRef = useRef<HTMLParagraphElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const openedRef = useRef(false);
@@ -54,7 +53,7 @@ export function EnvelopeExperience() {
         yPercent: -130,
         duration: 1.35,
         ease: "power3.inOut",
-        transformOrigin: "50% 100%",
+        transformOrigin: "50% 65%",
       },
       0,
     );
@@ -68,12 +67,10 @@ export function EnvelopeExperience() {
       },
       0.18,
     );
-
-    tl.to(envelope, { backgroundColor: "rgba(152, 32, 21, 0)", duration: 0.8 }, 0.45);
   }
 
   return (
-    <div className="relative mx-auto h-dvh w-full max-w-md overflow-hidden bg-maroon">
+    <div className="relative mx-auto h-dvh w-full max-w-md overflow-hidden bg-black">
       <video
         ref={videoRef}
         className="absolute inset-0 z-0 h-full w-full object-cover"
@@ -86,7 +83,7 @@ export function EnvelopeExperience() {
 
       <div
         ref={envelopeRef}
-        className="absolute inset-0 z-10 bg-maroon"
+        className="absolute inset-0 z-10 bg-black"
         style={{ perspective: "1200px" }}
       >
         <button
@@ -96,44 +93,23 @@ export function EnvelopeExperience() {
           onClick={openEnvelope}
         />
 
-        <div className="absolute inset-x-0 top-0">
-          <div
-            ref={topRef}
-            className="relative z-20 w-full will-change-transform"
-            style={{ transformStyle: "preserve-3d" }}
-          >
-            <Image
-              src="/envolpe-top.png"
-              alt="Envelope flap"
-              width={941}
-              height={1093}
-              sizes="(max-width: 448px) 100vw, 448px"
-              className="h-auto w-full"
-              priority
-              unoptimized
-            />
-          </div>
+        <img
+          ref={bottomRef}
+          src="/envolpe-bottom.png"
+          alt=""
+          className="absolute inset-0 z-10 h-full w-full object-cover object-bottom mix-blend-lighten will-change-transform"
+        />
 
-          <div
-            ref={bottomRef}
-            className="relative z-10 -mt-[34%] w-full will-change-transform"
-          >
-            <Image
-              src="/envolpe-bottom.png"
-              alt="Envelope"
-              width={941}
-              height={396}
-              sizes="(max-width: 448px) 100vw, 448px"
-              className="h-auto w-full"
-              priority
-              unoptimized
-            />
-          </div>
-        </div>
+        <img
+          ref={topRef}
+          src="/envolpe-top.png"
+          alt=""
+          className="absolute inset-0 z-20 h-full w-full object-cover object-top mix-blend-lighten will-change-transform"
+        />
 
         <p
           ref={hintRef}
-          className="pointer-events-none absolute inset-x-0 top-[58%] z-40 text-center text-3xl text-white"
+          className="pointer-events-none absolute inset-x-0 top-[62%] z-40 text-center text-3xl text-white"
         >
           Tap to open
         </p>
