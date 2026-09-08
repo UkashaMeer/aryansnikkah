@@ -588,7 +588,7 @@ export function EnvelopeExperience() {
         />
         <div
           ref={leftSideRef}
-          className="pointer-events-none absolute inset-y-0 -left-28 z-20 h-full"
+          className="pointer-events-none absolute inset-y-0 -left-40 z-20 h-full"
         >
           <img
             src="/forth-sides.webp"
@@ -598,7 +598,7 @@ export function EnvelopeExperience() {
         </div>
         <div
           ref={rightSideRef}
-          className="pointer-events-none absolute inset-y-0 -right-28 z-20 h-full"
+          className="pointer-events-none absolute inset-y-0 -right-40 z-20 h-full"
         >
           <img
             src="/forth-sides.webp"
