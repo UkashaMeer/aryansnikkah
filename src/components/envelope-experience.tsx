@@ -86,7 +86,7 @@ export function EnvelopeExperience() {
 
       <div
         ref={envelopeRef}
-        className="absolute inset-0 z-10 flex flex-col bg-maroon"
+        className="absolute inset-0 z-10 bg-maroon"
         style={{ perspective: "1200px" }}
       >
         <button
@@ -97,24 +97,8 @@ export function EnvelopeExperience() {
         />
 
         <div
-          ref={topRef}
-          className="relative z-20 w-full shrink-0 will-change-transform"
-          style={{ transformStyle: "preserve-3d" }}
-        >
-          <Image
-            src="/envolpe-top.png"
-            alt="Envelope flap"
-            width={941}
-            height={1093}
-            sizes="(max-width: 448px) 100vw, 448px"
-            className="h-auto w-full"
-            priority
-          />
-        </div>
-
-        <div
           ref={bottomRef}
-          className="relative z-10 -mt-[22%] min-h-0 w-full flex-1 will-change-transform"
+          className="absolute inset-x-0 bottom-0 z-10 h-[58%] w-full will-change-transform"
         >
           <Image
             src="/envolpe-bottom.png"
@@ -123,6 +107,23 @@ export function EnvelopeExperience() {
             sizes="(max-width: 448px) 100vw, 448px"
             className="object-cover object-top"
             priority
+            unoptimized
+          />
+        </div>
+
+        <div
+          ref={topRef}
+          className="absolute inset-x-0 top-0 z-20 h-[54%] w-full will-change-transform"
+          style={{ transformStyle: "preserve-3d" }}
+        >
+          <Image
+            src="/envolpe-top.png"
+            alt="Envelope flap"
+            fill
+            sizes="(max-width: 448px) 100vw, 448px"
+            className="object-contain object-top"
+            priority
+            unoptimized
           />
         </div>
 
