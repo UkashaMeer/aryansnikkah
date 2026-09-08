@@ -1,9 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import gsap from "gsap";
 
 const OCTOBER_WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+function DetailIcon({ children }: { children: ReactNode }) {
+  return (
+    <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-maroon/10 text-maroon">
+      {children}
+    </span>
+  );
+}
 
 function OctoberCalendar() {
   const firstWeekday = 4;
@@ -72,6 +80,10 @@ export function EnvelopeExperience() {
   const section2CopyRef = useRef<HTMLDivElement>(null);
   const section3Ref = useRef<HTMLElement>(null);
   const section3CopyRef = useRef<HTMLDivElement>(null);
+  const section4Ref = useRef<HTMLElement>(null);
+  const section4CopyRef = useRef<HTMLDivElement>(null);
+  const leftSideRef = useRef<HTMLDivElement>(null);
+  const rightSideRef = useRef<HTMLDivElement>(null);
   const openedRef = useRef(false);
   const [canScroll, setCanScroll] = useState(false);
 
@@ -204,6 +216,75 @@ export function EnvelopeExperience() {
         observer.disconnect();
       },
       { threshold: 0.35 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const section = section4Ref.current;
+    const copy = section4CopyRef.current;
+    const left = leftSideRef.current;
+    const right = rightSideRef.current;
+    if (!section || !copy || !left || !right) return;
+
+    const lines = copy.querySelectorAll("[data-copy]");
+    const topDrape = section.querySelector("[data-forth-top]");
+    const ornament = section.querySelector("[data-forth-ornament]");
+    gsap.set(left, { xPercent: -110, opacity: 0 });
+    gsap.set(right, { xPercent: 110, opacity: 0 });
+    gsap.set(topDrape, { yPercent: -30, opacity: 0 });
+    gsap.set(copy, { opacity: 0 });
+    gsap.set(lines, { opacity: 0, y: 18 });
+    gsap.set(ornament, { opacity: 0, y: -16, scale: 0.72 });
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        gsap.to(topDrape, {
+          yPercent: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power2.out",
+        });
+        gsap.to(left, {
+          xPercent: 0,
+          opacity: 1,
+          duration: 1.3,
+          ease: "power3.out",
+        });
+        gsap.to(right, {
+          xPercent: 0,
+          opacity: 1,
+          duration: 1.3,
+          ease: "power3.out",
+        });
+        gsap.to(copy, {
+          opacity: 1,
+          duration: 0.9,
+          delay: 0.15,
+          ease: "power2.out",
+        });
+        gsap.to(lines, {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.12,
+          delay: 0.28,
+          ease: "power2.out",
+        });
+        gsap.to(ornament, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.9,
+          delay: 0.35,
+          ease: "back.out(1.6)",
+        });
+        observer.disconnect();
+      },
+      { threshold: 0.3 },
     );
 
     observer.observe(section);
@@ -458,6 +539,124 @@ export function EnvelopeExperience() {
           </p>
           <div data-copy>
             <OctoberCalendar />
+          </div>
+        </div>
+      </section>
+      <section
+        id="section-4"
+        ref={section4Ref}
+        className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
+      >
+        <img
+          src="/scene-two-bg.jpg"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <img
+          data-forth-top
+          src="/forth-top.webp"
+          alt=""
+          className="pointer-events-none absolute inset-x-0 top-0 z-20 w-full object-contain object-top"
+        />
+        <div
+          ref={leftSideRef}
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 h-full w-[32%] overflow-hidden"
+        >
+          <img
+            src="/forth-sides.webp"
+            alt=""
+            className="h-full w-full object-cover object-left"
+          />
+        </div>
+        <div
+          ref={rightSideRef}
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 h-full w-[32%] overflow-hidden"
+        >
+          <img
+            src="/forth-sides.webp"
+            alt=""
+            className="h-full w-full origin-center object-cover object-left scale-x-[-1]"
+          />
+        </div>
+        <div
+          ref={section4CopyRef}
+          className="absolute inset-x-[12%] top-[46%] z-30 -translate-y-1/2"
+        >
+          <div className="relative overflow-visible">
+            <div className="pointer-events-none absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2">
+              <img
+                data-forth-ornament
+                src="/forth-box-top.webp"
+                alt=""
+                className="w-[150px] object-contain"
+              />
+            </div>
+            <div className="rounded-2xl bg-white px-5 pb-6 pt-12 shadow-[0_12px_40px_rgba(152,32,21,0.18)]">
+              <h2
+                data-copy
+                className="text-center font-primary text-[42px] leading-none text-maroon"
+              >
+                In Sha Allah
+              </h2>
+              <div className="mx-auto mt-5 flex w-fit flex-col gap-3">
+                <div data-copy className="flex items-start gap-2.5 text-left">
+                  <DetailIcon>
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-3.5 w-3.5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      aria-hidden
+                    >
+                      <rect x="3.5" y="5" width="17" height="15.5" rx="2" />
+                      <path d="M3.5 10h17M8 3.5v3.5M16 3.5v3.5" />
+                    </svg>
+                  </DetailIcon>
+                  <p className="font-sans text-[13px] font-semibold leading-snug text-maroon">
+                    Saturday, 17 October 2026
+                  </p>
+                </div>
+                <div data-copy className="flex items-start gap-2.5 text-left">
+                  <DetailIcon>
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-3.5 w-3.5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      aria-hidden
+                    >
+                      <circle cx="12" y="12" r="8.25" />
+                      <path d="M12 7.5V12l3.2 1.8" />
+                    </svg>
+                  </DetailIcon>
+                  <p className="font-sans text-[13px] font-semibold leading-snug text-maroon">
+                    8:00 pm
+                  </p>
+                </div>
+                <div data-copy className="flex items-start gap-2.5 text-left">
+                  <DetailIcon>
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-3.5 w-3.5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      aria-hidden
+                    >
+                      <path d="M12 21s-6.5-5.6-6.5-10.3a6.5 6.5 0 1 1 13 0C18.5 15.4 12 21 12 21z" />
+                      <circle cx="12" y="10.7" r="2.15" />
+                    </svg>
+                  </DetailIcon>
+                  <p className="font-sans text-[13px] font-semibold leading-snug text-maroon">
+                    Empire Banquet
+                    <br />
+                    Latifabad Unit 7
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
