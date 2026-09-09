@@ -73,6 +73,7 @@ export function EnvelopeExperience() {
   const bottomRef = useRef<HTMLImageElement>(null);
   const hintRef = useRef<HTMLParagraphElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const inviteRef = useRef<HTMLDivElement>(null);
   const scrollBtnRef = useRef<HTMLButtonElement>(null);
   const section2Ref = useRef<HTMLElement>(null);
@@ -332,7 +333,11 @@ export function EnvelopeExperience() {
 
     if (!envelope || !top || !bottom) return;
 
-    void video?.play();
+    if (video) {
+      video.muted = true;
+      void video.play();
+    }
+    void audioRef.current?.play();
 
     const tl = gsap.timeline({
       defaults: { ease: "power2.inOut" },
@@ -378,11 +383,18 @@ export function EnvelopeExperience() {
           ref={videoRef}
           className="absolute inset-0 z-0 h-full w-full object-cover"
           src="/new%20first%20video.mp4"
+          muted
           playsInline
           preload="auto"
         >
           Your browser does not support the video tag.
         </video>
+        <audio
+          ref={audioRef}
+          src="/bg-music.mp3"
+          loop
+          preload="auto"
+        />
 
         <div
           ref={inviteRef}
