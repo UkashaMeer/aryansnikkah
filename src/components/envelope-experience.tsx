@@ -590,7 +590,7 @@ export function EnvelopeExperience() {
         />
         <div
           ref={section4CopyRef}
-          className="absolute inset-0 z-30 flex items-center justify-center px-[16%] pt-10"
+          className="absolute inset-0 z-30 flex items-center justify-center px-[16.5%] pt-10"
         >
           <div className="relative w-full overflow-visible">
             <div className="">
