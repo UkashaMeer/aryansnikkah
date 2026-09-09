@@ -156,32 +156,41 @@ export function EnvelopeExperience() {
 
   useEffect(() => {
     const section = section2Ref.current;
-    const left = leftPillarRef.current;
-    const right = rightPillarRef.current;
     const copy = section2CopyRef.current;
-    if (!section || !left || !right || !copy) return;
+    if (!section || !copy) return;
 
     const lines = copy.querySelectorAll("[data-copy]");
-    gsap.set(left, { xPercent: -100 });
-    gsap.set(right, { xPercent: 100 });
+    const bg = section.querySelector("[data-scene-bg]");
+    gsap.set(bg, { scale: 1.14, opacity: 0.45 });
+    gsap.set(copy, { opacity: 0, y: 40 });
     gsap.set(lines, { opacity: 0, y: 28 });
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
-        gsap.to(left, { xPercent: 0, duration: 1.5, ease: "power3.out" });
-        gsap.to(right, { xPercent: 0, duration: 1.5, ease: "power3.out" });
+        gsap.to(bg, {
+          scale: 1,
+          opacity: 1,
+          duration: 1.6,
+          ease: "power2.out",
+        });
+        gsap.to(copy, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+        });
         gsap.to(lines, {
           opacity: 1,
           y: 0,
           duration: 0.85,
-          stagger: 0.14,
-          delay: 0.25,
+          stagger: 0.12,
+          delay: 0.18,
           ease: "power2.out",
         });
         observer.disconnect();
       },
-      { threshold: 0.35 },
+      { threshold: 0.28 },
     );
 
     observer.observe(section);
@@ -231,64 +240,40 @@ export function EnvelopeExperience() {
   useEffect(() => {
     const section = section4Ref.current;
     const copy = section4CopyRef.current;
-    const left = leftSideRef.current;
-    const right = rightSideRef.current;
-    if (!section || !copy || !left || !right) return;
+    if (!section || !copy) return;
 
     const lines = copy.querySelectorAll("[data-copy]");
-    const topDrape = section.querySelector("[data-forth-top]");
-    const ornament = section.querySelector("[data-forth-ornament]");
-    gsap.set(left, { xPercent: -40 });
-    gsap.set(right, { xPercent: 40 });
-    gsap.set(topDrape, { yPercent: -20, opacity: 0 });
-    gsap.set(copy, { opacity: 0 });
-    gsap.set(lines, { opacity: 0, y: 18 });
-    gsap.set(ornament, { opacity: 0, y: -16, scale: 0.72 });
+    const bg = section.querySelector("[data-scene-bg]");
+    gsap.set(bg, { scale: 1.12, opacity: 0.45 });
+    gsap.set(copy, { opacity: 0, y: 48 });
+    gsap.set(lines, { opacity: 0, y: 22 });
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
-        gsap.to(topDrape, {
-          yPercent: 0,
+        gsap.to(bg, {
+          scale: 1,
           opacity: 1,
-          duration: 1.2,
+          duration: 1.6,
           ease: "power2.out",
-        });
-        gsap.to(left, {
-          xPercent: 0,
-          duration: 1.3,
-          ease: "power3.out",
-        });
-        gsap.to(right, {
-          xPercent: 0,
-          duration: 1.3,
-          ease: "power3.out",
         });
         gsap.to(copy, {
           opacity: 1,
-          duration: 0.9,
-          delay: 0.15,
-          ease: "power2.out",
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
         });
         gsap.to(lines, {
           opacity: 1,
           y: 0,
-          duration: 0.7,
-          stagger: 0.12,
-          delay: 0.28,
+          duration: 0.75,
+          stagger: 0.14,
+          delay: 0.22,
           ease: "power2.out",
-        });
-        gsap.to(ornament, {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.9,
-          delay: 0.35,
-          ease: "back.out(1.6)",
         });
         observer.disconnect();
       },
-      { threshold: 0.3 },
+      { threshold: 0.28 },
     );
 
     observer.observe(section);
@@ -493,9 +478,10 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden border-b border-black"
       >
         <img
+          data-scene-bg
           src="/scene-two-new-bg.webp"
           alt=""
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover will-change-transform"
         />
         <div
           ref={section2CopyRef}
@@ -584,9 +570,10 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden border-b border-black"
       >
         <img
+          data-scene-bg
           src="/scene-four-new-bg-n.webp"
           alt=""
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover will-change-transform"
         />
         <div
           ref={section4CopyRef}
