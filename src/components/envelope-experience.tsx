@@ -46,8 +46,8 @@ function OctoberCalendar() {
                 >
                   <path
                     d="M16 27.6 14.07 25.84C8.53 21.12 4 17.2 4 12.33 4 8.36 6.56 6 10.67 6c2.32 0 4.28 1.08 5.33 2.76C17.05 7.08 19.24 6 21.33 6 25.44 6 28 8.36 28 12.33c0 4.87-4.53 8.79-10.07 13.51Z"
-                    fill="#f8d5cc"
-                    stroke="#982015"
+                    fill="#e8e2d6"
+                    stroke="#111111"
                     strokeWidth="1.15"
                     strokeLinejoin="round"
                   />
@@ -377,7 +377,7 @@ export function EnvelopeExperience() {
         <video
           ref={videoRef}
           className="absolute inset-0 z-0 h-full w-full object-cover"
-          src="/after-envople-video.mp4"
+          src="/new%20first%20video.mp4"
           playsInline
           preload="auto"
         >
@@ -402,8 +402,8 @@ export function EnvelopeExperience() {
           onClick={scrollDown}
           className="absolute bottom-5 left-1/2 z-[6] flex -translate-x-1/2 flex-col items-center gap-0.5 border-0 bg-transparent opacity-0"
         >
-          <span className="font-primary text-2xl text-maroon">Scroll down</span>
-          <span className="animate-bounce text-2xl leading-none text-maroon">
+          <span className="font-primary text-2xl text-black">Scroll down</span>
+          <span className="animate-bounce text-2xl leading-none text-black">
             ↓
           </span>
         </button>
@@ -418,7 +418,7 @@ export function EnvelopeExperience() {
 
           <img
             ref={fillRef}
-            src="/fill.webp"
+            src="/fill-new.webp"
             alt=""
             className="absolute inset-0 z-0 h-full w-full object-cover"
           />
@@ -426,13 +426,13 @@ export function EnvelopeExperience() {
           <div className="absolute inset-x-0 top-0 z-10">
             <img
               ref={topRef}
-              src="/envolpe-top.webp"
+              src="/envolpe-top-new.webp"
               alt=""
               className="relative z-20 block w-full will-change-transform"
             />
             <img
               ref={bottomRef}
-              src="/envolpe-bottom.webp"
+              src="/envolope-bottom-new.webp"
               alt=""
               className="relative z-10 -mt-[24%] block w-full will-change-transform"
             />
@@ -440,7 +440,7 @@ export function EnvelopeExperience() {
 
           <p
             ref={hintRef}
-            className="pointer-events-none absolute inset-x-0 top-[72%] z-40 text-center text-3xl text-white"
+            className="pointer-events-none absolute inset-x-0 top-[72%] z-40 text-center text-3xl text-black"
           >
             Tap to open
           </p>
