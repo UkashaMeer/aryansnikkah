@@ -373,7 +373,7 @@ export function EnvelopeExperience() {
 
   return (
     <div className={canScroll ? undefined : "h-screen overflow-hidden"}>
-      <div className="relative mx-auto h-screen w-full max-w-md overflow-hidden bg-black">
+      <div className="relative mx-auto h-screen w-full max-w-md overflow-hidden border-b border-black bg-black">
         <video
           ref={videoRef}
           className="absolute inset-0 z-0 h-full w-full object-cover"
@@ -449,7 +449,7 @@ export function EnvelopeExperience() {
       <section
         id="section-2"
         ref={section2Ref}
-        className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
+        className="relative mx-auto h-screen w-full max-w-md overflow-hidden border-b border-black"
       >
         <img
           src="/scene-two-new-bg.webp"
@@ -510,7 +510,7 @@ export function EnvelopeExperience() {
       <section
         id="section-3"
         ref={section3Ref}
-        className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
+        className="relative mx-auto h-screen w-full max-w-md overflow-hidden border-b border-black"
       >
         <img
           src="/scene-three-new-bg.webp"
@@ -541,7 +541,7 @@ export function EnvelopeExperience() {
       <section
         id="section-4"
         ref={section4Ref}
-        className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
+        className="relative mx-auto h-screen w-full max-w-md overflow-hidden border-b border-black"
       >
         <img
           src="/scene-four-new-bg.webp"
