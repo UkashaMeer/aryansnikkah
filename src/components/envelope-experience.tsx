@@ -88,6 +88,8 @@ export function EnvelopeExperience() {
   const rightSideRef = useRef<HTMLDivElement>(null);
   const section5Ref = useRef<HTMLElement>(null);
   const section5CopyRef = useRef<HTMLDivElement>(null);
+  const section6Ref = useRef<HTMLElement>(null);
+  const section6CopyRef = useRef<HTMLDivElement>(null);
   const openedRef = useRef(false);
   const [canScroll, setCanScroll] = useState(false);
 
@@ -309,6 +311,33 @@ export function EnvelopeExperience() {
           y: 0,
           duration: 1,
           stagger: 0.18,
+          ease: "power2.out",
+        });
+        observer.disconnect();
+      },
+      { threshold: 0.3 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const section = section6Ref.current;
+    const copy = section6CopyRef.current;
+    if (!section || !copy) return;
+
+    const lines = copy.querySelectorAll("[data-copy]");
+    gsap.set(lines, { opacity: 0, y: 20 });
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        gsap.to(lines, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.16,
           ease: "power2.out",
         });
         observer.disconnect();
@@ -561,7 +590,7 @@ export function EnvelopeExperience() {
         />
         <div
           ref={section4CopyRef}
-          className="absolute inset-0 z-30 flex items-center justify-center px-[18%] pt-10"
+          className="absolute inset-0 z-30 flex items-center justify-center px-[16%] pt-10"
         >
           <div className="relative w-full overflow-visible">
             <div className="">
@@ -605,7 +634,7 @@ export function EnvelopeExperience() {
       <section
         id="section-5"
         ref={section5Ref}
-        className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
+        className="relative mx-auto h-screen w-full max-w-md overflow-hidden border-b border-black"
       >
         <img
           src="/fifth-final.jpg"
@@ -614,7 +643,7 @@ export function EnvelopeExperience() {
         />
         <div
           ref={section5CopyRef}
-          className="absolute inset-x-0 top-20 z-10 flex flex-col items-center px-6"
+          className="absolute inset-x-0 top-32 z-10 flex flex-col items-center px-6"
         >
           <img
             data-copy
@@ -633,7 +662,7 @@ export function EnvelopeExperience() {
             data-copy
             src="/last-scene-dua-2.webp"
             alt="Jazak Allah u Khair"
-            className="mt-6 w-full max-w-[200px] object-contain"
+            className="mt-6 w-full max-w-[300px] object-contain"
           />
           <p
             data-copy
@@ -641,6 +670,50 @@ export function EnvelopeExperience() {
           >
             Please keep the couple in your dua's
           </p>
+        </div>
+      </section>
+      <section
+        id="section-6"
+        ref={section6Ref}
+        className="relative mx-auto h-screen w-full max-w-md overflow-hidden bg-[#f4efe4]"
+      >
+        <div
+          ref={section6CopyRef}
+          className="absolute inset-0 z-10 flex flex-col items-center px-5 pt-16"
+        >
+          <h2
+            data-copy
+            className="font-primary text-5xl leading-none text-black"
+          >
+            Live Location
+          </h2>
+          <p
+            data-copy
+            className="mt-2 text-center font-sans text-[12px] font-medium text-black"
+          >
+            Empire Banquet, Latifabad Unit 7
+          </p>
+          <div
+            data-copy
+            className="mt-5 h-[52vh] w-full overflow-hidden rounded-2xl shadow-[0_12px_40px_rgba(17,17,17,0.18)] ring-1 ring-black/10"
+          >
+            <iframe
+              title="Empire Banquet live location"
+              src="https://maps.google.com/maps?q=The+Empire+Banquet,+Latifabad+Unit+7,+Hyderabad&ll=25.372588,68.3620157&z=17&output=embed"
+              className="h-full w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <a
+            data-copy
+            href="https://share.google/r4sB9kqKfezUE8B1p"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-4 font-sans text-[12px] font-semibold text-black underline underline-offset-4"
+          >
+            Open in Google Maps
+          </a>
         </div>
       </section>
     </div>
