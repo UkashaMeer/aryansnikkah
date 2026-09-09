@@ -621,13 +621,13 @@ export function EnvelopeExperience() {
             data-copy
             src="/last-scene-dua-2.webp"
             alt="Jazak Allah u Khair"
-            className="mt-6 w-full max-w-[260px] object-contain"
+            className="mt-6 w-full max-w-[200px] object-contain"
           />
           <p
             data-copy
             className="mt-3 max-w-[320px] text-center font-sans text-[12px] font-medium leading-relaxed text-maroon"
           >
-            Jazak Allah u Khair
+            May Allah reward you with goodness.
           </p>
         </div>
       </section>
