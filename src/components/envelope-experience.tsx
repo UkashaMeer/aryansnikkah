@@ -46,13 +46,13 @@ function OctoberCalendar() {
                 >
                   <path
                     d="M16 27.6 14.07 25.84C8.53 21.12 4 17.2 4 12.33 4 8.36 6.56 6 10.67 6c2.32 0 4.28 1.08 5.33 2.76C17.05 7.08 19.24 6 21.33 6 25.44 6 28 8.36 28 12.33c0 4.87-4.53 8.79-10.07 13.51Z"
-                    fill="#e8e2d6"
-                    stroke="#111111"
+                    fill="#f4c4bc"
+                    stroke="#982015"
                     strokeWidth="1.15"
                     strokeLinejoin="round"
                   />
                 </svg>
-                <span className="relative z-10 font-sans text-[13px] font-bold leading-none text-maroon">
+                <span className="relative z-10 font-sans text-[13px] font-bold leading-none text-[#982015]">
                   17
                 </span>
               </span>
