@@ -662,8 +662,13 @@ export function EnvelopeExperience() {
       <section
         id="section-6"
         ref={section6Ref}
-        className="relative mx-auto h-screen w-full max-w-md overflow-hidden bg-[#f4efe4]"
+        className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
       >
+        <img
+          src="/scene-six-image.webp"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <div
           ref={section6CopyRef}
           className="absolute inset-0 z-10 flex flex-col items-center px-5 pt-16"
