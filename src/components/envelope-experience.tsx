@@ -469,7 +469,7 @@ export function EnvelopeExperience() {
           </p>
           <h1
             data-copy
-            className="mt-4 font-primary text-5xl font-medium leading-none text-maroon"
+            className="mt-4 font-primary text-[40px] font-medium leading-none text-maroon"
           >
             Nikkah Ceremony
           </h1>
@@ -481,19 +481,19 @@ export function EnvelopeExperience() {
           </p>
           <h1
             data-copy
-            className="mt-3 font-primary text-5xl font-medium leading-none text-maroon"
+            className="mt-3 font-primary text-[40px] font-medium leading-none text-maroon"
           >
             Aryan Ul Hassan
           </h1>
           <p
             data-copy
-            className="mt-2 font-sans text-[14px] font-semibold uppercase leading-relaxed text-maroon"
+            className="mt-2 font-sans text-[13px] font-semibold uppercase leading-relaxed text-maroon"
           >
             With
           </p>
           <h1
             data-copy
-            className="mt-3 font-primary text-5xl font-medium leading-none text-maroon"
+            className="mt-3 font-primary text-[40px] font-medium leading-none text-maroon"
           >
             Laiba Baig
           </h1>
