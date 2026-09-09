@@ -608,7 +608,7 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
       >
         <img
-          src="/fifth-final.webp"
+          src="/fifth-final.jpg"
           alt=""
           className="absolute inset-0 h-full w-full"
         />
@@ -639,7 +639,7 @@ export function EnvelopeExperience() {
             data-copy
             className="mt-3 max-w-[320px] text-center font-sans text-[12px] font-medium leading-relaxed text-maroon"
           >
-            May Allah reward you with goodness.
+            Please keep the couple in your dua's
           </p>
         </div>
       </section>
