@@ -458,31 +458,30 @@ export function EnvelopeExperience() {
         />
         <div
           ref={section2CopyRef}
-          className="absolute inset-x-[16%] top-40 z-20 flex flex-col items-center text-center"
+          className="absolute inset-x-[16%] top-45 z-20 flex flex-col items-center text-center"
         >
           <p
             data-copy
-            className="font-sans text-[12px] font-semibold uppercase leading-relaxed text-maroon"
+            className="font-sans text-[13px] font-semibold uppercase leading-relaxed text-maroon"
           >
             Mr &amp; Mrs. Mansoor Ul Hassan Request
-            <br />
             the honour of your presence at the
           </p>
           <h1
             data-copy
-            className="mt-4 font-primary text-4xl font-medium leading-none text-maroon"
+            className="mt-4 font-primary text-5xl font-medium leading-none text-maroon"
           >
             Nikkah Ceremony
           </h1>
           <p
             data-copy
-            className="mt-2 font-sans text-[12px] font-semibold uppercase leading-relaxed text-maroon"
+            className="mt-2 font-sans text-[13px] font-semibold uppercase leading-relaxed text-maroon"
           >
             Of their beloved son
           </p>
           <h1
             data-copy
-            className="mt-3 font-primary text-4xl font-medium leading-none text-maroon"
+            className="mt-3 font-primary text-5xl font-medium leading-none text-maroon"
           >
             Aryan Ul Hassan
           </h1>
@@ -494,13 +493,13 @@ export function EnvelopeExperience() {
           </p>
           <h1
             data-copy
-            className="mt-3 font-primary text-4xl font-medium leading-none text-maroon"
+            className="mt-3 font-primary text-5xl font-medium leading-none text-maroon"
           >
             Laiba Baig
           </h1>
           <p
             data-copy
-            className="mt-2 font-sans text-[12px] font-semibold uppercase leading-relaxed text-maroon"
+            className="mt-2 font-sans text-[13px] font-semibold uppercase leading-relaxed text-maroon"
           >
             Daughter of
             Mr &amp; Mrs Azhar Baig
