@@ -386,7 +386,7 @@ export function EnvelopeExperience() {
 
         <div
           ref={inviteRef}
-          className="pointer-events-none absolute inset-x-0 top-[28%] z-[5] flex translate-y-6 flex-col items-center opacity-0"
+          className="pointer-events-none absolute inset-x-0 top-[29%] z-[5] flex translate-y-6 flex-col items-center opacity-0"
         >
           <img
             src="/Bismillah.webp"
@@ -452,13 +452,13 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
       >
         <img
-          src="/scene-two-bg.webp"
+          src="/new bg.jpeg"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div
           ref={leftPillarRef}
-          className="absolute inset-y-0 left-0 z-10 h-full w-[18%] overflow-hidden"
+          className="absolute inset-y-0 -left-10 z-10 h-full w-[18%] overflow-hidden"
         >
           <img
             src="/sidepillars.webp"
@@ -468,7 +468,7 @@ export function EnvelopeExperience() {
         </div>
         <div
           ref={rightPillarRef}
-          className="absolute inset-y-0 right-0 z-10 h-full w-[18%] overflow-hidden"
+          className="absolute inset-y-0 -right-10 z-10 h-full w-[18%] overflow-hidden"
         >
           <img
             src="/sidepillars.webp"
@@ -478,7 +478,7 @@ export function EnvelopeExperience() {
         </div>
         <div
           ref={section2CopyRef}
-          className="absolute inset-x-[16%] top-24 z-20 flex flex-col items-center text-center"
+          className="absolute inset-x-[16%] top-40 z-20 flex flex-col items-center text-center"
         >
           <p
             data-copy
@@ -533,11 +533,11 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
       >
         <img
-          src="/scene-three-bg.webp"
+          src="/scene-three-bg-1.jpg"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <img
+        {/* <img
           data-flower
           src="/flowers-2.webp"
           alt=""
@@ -548,7 +548,7 @@ export function EnvelopeExperience() {
           src="/flowers-2.webp"
           alt=""
           className="absolute -top-10 -right-10 z-10 w-[42%] max-w-[180px] scale-x-[-1]"
-        />
+        /> */}
         <div
           ref={section3CopyRef}
           className="absolute inset-x-[10%] top-[25%] z-20 flex flex-col items-center text-center"
@@ -576,7 +576,7 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
       >
         <img
-          src="/scene-two-bg.webp"
+          src="/new bg.jpeg"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -584,9 +584,9 @@ export function EnvelopeExperience() {
           data-forth-top
           src="/forth-top.webp"
           alt=""
-          className="pointer-events-none absolute inset-x-0 -top-30 z-10 h-1/2 w-full object-contain object-top"
+          className="pointer-events-none absolute inset-x-0 -top-40 z-10 h-1/2 w-full object-contain object-top"
         />
-        <div
+        {/* <div
           ref={leftSideRef}
           className="pointer-events-none absolute inset-y-0 -left-40 z-20 h-full"
         >
@@ -595,8 +595,8 @@ export function EnvelopeExperience() {
             alt=""
             className="h-full w-full origin-center object-cover object-left object-top scale-x-[-1]"
           />
-        </div>
-        <div
+        </div> */}
+        {/* <div
           ref={rightSideRef}
           className="pointer-events-none absolute inset-y-0 -right-40 z-20 h-full"
         >
@@ -605,7 +605,7 @@ export function EnvelopeExperience() {
             alt=""
             className="h-full w-full origin-center object-cover object-left object-top"
           />
-        </div>
+        </div> */}
         <div
           ref={section4CopyRef}
           className="absolute inset-0 z-30 flex items-center justify-center px-[12%]"
