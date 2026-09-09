@@ -609,8 +609,7 @@ export function EnvelopeExperience() {
                     <MapPin className="h-4 w-4" strokeWidth={1.75} />
                   </DetailIcon>
                   <p className="font-sans text-[13px] font-semibold leading-snug text-maroon">
-                    Empire Banquet
-                    Latifabad Unit 7
+                    Empire Banquet, Unit 7, Latifabad, Hyderabad
                   </p>
                 </div>
               </div>
@@ -669,10 +668,17 @@ export function EnvelopeExperience() {
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
+        <div className="absolute inset-0 z-[1] bg-white/45" />
         <div
           ref={section6CopyRef}
-          className="absolute inset-0 z-10 flex flex-col items-center px-5 pt-16"
+          className="absolute inset-0 z-10 flex flex-col items-center px-5 pt-12"
         >
+          <img
+            data-copy
+            src="/svg.webp"
+            alt=""
+            className="mb-2 h-[72px] w-auto object-contain"
+          />
           <h2
             data-copy
             className="font-primary text-5xl leading-none text-black"
