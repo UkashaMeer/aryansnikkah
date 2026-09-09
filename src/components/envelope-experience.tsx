@@ -457,26 +457,6 @@ export function EnvelopeExperience() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div
-          ref={leftPillarRef}
-          className="absolute inset-y-0 -left-10 z-10 h-full w-[18%] overflow-hidden"
-        >
-          <img
-            src="/sidepillars.webp"
-            alt=""
-            className="h-full w-full object-cover object-right"
-          />
-        </div>
-        <div
-          ref={rightPillarRef}
-          className="absolute inset-y-0 -right-10 z-10 h-full w-[18%] overflow-hidden"
-        >
-          <img
-            src="/sidepillars.webp"
-            alt=""
-            className="h-full w-full origin-center object-cover object-right scale-x-[-1]"
-          />
-        </div>
-        <div
           ref={section2CopyRef}
           className="absolute inset-x-[16%] top-40 z-20 flex flex-col items-center text-center"
         >
@@ -537,18 +517,6 @@ export function EnvelopeExperience() {
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
-        {/* <img
-          data-flower
-          src="/flowers-2.webp"
-          alt=""
-          className="absolute -top-10 -left-10 z-10 w-[42%] max-w-[180px]"
-        />
-        <img
-          data-flower
-          src="/flowers-2.webp"
-          alt=""
-          className="absolute -top-10 -right-10 z-10 w-[42%] max-w-[180px] scale-x-[-1]"
-        /> */}
         <div
           ref={section3CopyRef}
           className="absolute inset-x-[10%] top-[25%] z-20 flex flex-col items-center text-center"
@@ -580,46 +548,12 @@ export function EnvelopeExperience() {
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <img
-          data-forth-top
-          src="/forth-top.webp"
-          alt=""
-          className="pointer-events-none absolute inset-x-0 -top-40 z-10 h-1/2 w-full object-contain object-top"
-        />
-        {/* <div
-          ref={leftSideRef}
-          className="pointer-events-none absolute inset-y-0 -left-40 z-20 h-full"
-        >
-          <img
-            src="/forth-sides.webp"
-            alt=""
-            className="h-full w-full origin-center object-cover object-left object-top scale-x-[-1]"
-          />
-        </div> */}
-        {/* <div
-          ref={rightSideRef}
-          className="pointer-events-none absolute inset-y-0 -right-40 z-20 h-full"
-        >
-          <img
-            src="/forth-sides.webp"
-            alt=""
-            className="h-full w-full origin-center object-cover object-left object-top"
-          />
-        </div> */}
         <div
           ref={section4CopyRef}
-          className="absolute inset-0 z-30 flex items-center justify-center px-[12%]"
+          className="absolute inset-0 z-30 flex items-center justify-center px-[18%]"
         >
           <div className="relative w-full overflow-visible">
-            <div className="pointer-events-none absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2">
-              <img
-                data-forth-ornament
-                src="/forth-box-top.webp"
-                alt=""
-                className="w-[150px] object-contain"
-              />
-            </div>
-            <div className="rounded-2xl bg-white px-5 pb-6 pt-12 shadow-[0_12px_40px_rgba(17,17,17,0.18)]">
+            <div className="">
               <h2
                 data-copy
                 className="text-center font-primary text-[42px] leading-none text-maroon"
@@ -663,17 +597,17 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
       >
         <img
-          src="/new-bg.webp"
+          src="/fifth final.jpg"
           alt=""
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full"
         />
         <div
           ref={section5CopyRef}
-          className="absolute inset-x-0 top-12 z-10 flex flex-col items-center px-6"
+          className="absolute inset-x-0 top-20 z-10 flex flex-col items-center px-6"
         >
           <img
             data-copy
-            src="/last-scene-dua.webp"
+            src="/last-scene.webp"
             alt="Barakallahu lakuma"
             className="w-full max-w-[340px] object-contain"
           />
