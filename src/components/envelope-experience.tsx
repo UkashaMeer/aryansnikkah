@@ -458,7 +458,7 @@ export function EnvelopeExperience() {
         />
         <div
           ref={section2CopyRef}
-          className="absolute inset-x-[16%] top-45 z-20 flex flex-col items-center text-center"
+          className="absolute inset-x-[16%] top-50 z-20 flex flex-col items-center text-center"
         >
           <p
             data-copy
@@ -518,7 +518,7 @@ export function EnvelopeExperience() {
         />
         <div
           ref={section3CopyRef}
-          className="absolute inset-x-[10%] top-[25%] z-20 flex flex-col items-center text-center"
+          className="absolute inset-x-[10%] top-[15%] z-20 flex flex-col items-center text-center"
         >
           <h1
             data-copy
@@ -543,13 +543,13 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden border-b border-black"
       >
         <img
-          src="/scene-four-new-bg.webp"
+          src="/scene-four-new-bg-n.webp"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div
           ref={section4CopyRef}
-          className="absolute inset-0 z-30 flex items-center justify-center px-[18%]"
+          className="absolute inset-0 z-30 flex items-center justify-center px-[18%] pt-10"
         >
           <div className="relative w-full overflow-visible">
             <div className="">
@@ -596,7 +596,7 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
       >
         <img
-          src="/fifth final.jpg"
+          src="/fifth-final.webp"
           alt=""
           className="absolute inset-0 h-full w-full"
         />
@@ -606,7 +606,7 @@ export function EnvelopeExperience() {
         >
           <img
             data-copy
-            src="/last-scene.webp"
+            src="/last-scene-dua-new.webp"
             alt="Barakallahu lakuma"
             className="w-full max-w-[340px] object-contain"
           />
