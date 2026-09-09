@@ -452,7 +452,7 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
       >
         <img
-          src="/new bg.jpeg"
+          src="/scene-two-new-bg.webp"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -533,7 +533,7 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
       >
         <img
-          src="/scene-three-bg-1.jpg"
+          src="/scene-three-new-bg.webp"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -576,7 +576,7 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
       >
         <img
-          src="/new bg.jpeg"
+          src="/scene-four-new-bg.webp"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -663,7 +663,7 @@ export function EnvelopeExperience() {
         className="relative mx-auto h-screen w-full max-w-md overflow-hidden"
       >
         <img
-          src="/fifth-scene-bg.webp"
+          src="/new-bg.webp"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
