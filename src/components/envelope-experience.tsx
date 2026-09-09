@@ -617,6 +617,18 @@ export function EnvelopeExperience() {
             May Allah bless you and shower His blessings upon you and join you
             together in goodness
           </p>
+          <img
+            data-copy
+            src="/last-scene-dua-2.webp"
+            alt="Jazak Allah u Khair"
+            className="mt-6 w-full max-w-[260px] object-contain"
+          />
+          <p
+            data-copy
+            className="mt-3 max-w-[320px] text-center font-sans text-[12px] font-medium leading-relaxed text-maroon"
+          >
+            Jazak Allah u Khair
+          </p>
         </div>
       </section>
     </div>
