@@ -391,7 +391,7 @@ export function EnvelopeExperience() {
         </video>
         <audio
           ref={audioRef}
-          src="/bg-music.mp3"
+          src="/audio.mp4"
           loop
           preload="auto"
         />
