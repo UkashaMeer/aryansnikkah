@@ -671,14 +671,8 @@ export function EnvelopeExperience() {
         <div className="absolute inset-0 z-[1] bg-white/45" />
         <div
           ref={section6CopyRef}
-          className="absolute inset-0 z-10 flex flex-col items-center px-5 pt-12"
+          className="absolute inset-0 z-10 flex flex-col items-center px-5 pt-20"
         >
-          <img
-            data-copy
-            src="/svg.webp"
-            alt=""
-            className="mb-2 h-[72px] w-auto object-contain"
-          />
           <h2
             data-copy
             className="font-primary text-5xl leading-none text-black"
@@ -689,7 +683,7 @@ export function EnvelopeExperience() {
             data-copy
             className="mt-2 text-center font-sans text-[12px] font-medium text-black"
           >
-            Empire Banquet, Latifabad Unit 7
+            Empire Banquet, Unit 7, Latifabad, Hyderabad
           </p>
           <div
             data-copy
