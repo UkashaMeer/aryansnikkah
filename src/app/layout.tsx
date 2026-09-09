@@ -23,6 +23,10 @@ const amiri = Amiri({
 export const metadata: Metadata = {
   title: "A & L | Wedding Invitation",
   description: "You are cordially invited",
+  icons: {
+    icon: "/svg.webp",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
